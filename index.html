@@ -1,597 +1,649 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TF-FIU Maquettes papier</title>
+<meta charset="UTF-8">
 
-    <style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        * {
-            box-sizing: border-box;
-        }
+<title>TF-FIU Maquettes papier</title>
 
-        html {
-            scroll-behavior: smooth;
-        }
+<style>
 
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #080c12;
-            color: white;
-        }
+/* ================================
+   BASE
+================================ */
 
-        /* =========================
-           HEADER
-        ========================= */
+* {
+    box-sizing: border-box;
+}
 
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
+html {
+    scroll-behavior: smooth;
+}
 
-            background: rgba(10, 15, 22, 0.95);
-            border-bottom: 1px solid #263343;
+body {
+    margin: 0;
+    background: #080c12;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-            backdrop-filter: blur(10px);
-        }
 
-        .header-content {
-            max-width: 1200px;
-            margin: auto;
+/* ================================
+   HEADER
+================================ */
 
-            min-height: 70px;
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 
-            padding: 0 25px;
+    background: rgba(8, 12, 18, 0.96);
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+    border-bottom: 1px solid #263343;
 
-        .logo {
-            font-size: 21px;
-            font-weight: bold;
-        }
+    backdrop-filter: blur(12px);
+}
 
-        .logo-blue {
-            color: #4da3ff;
-        }
+.header {
+    max-width: 1200px;
+    width: 92%;
 
-        nav {
-            display: flex;
-            gap: 25px;
-        }
+    margin: auto;
 
-        nav a {
-            color: #a9b4c0;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    min-height: 70px;
 
-        nav a:hover {
-            color: white;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-        /* =========================
-           CONTENEUR
-        ========================= */
+.logo {
+    font-size: 21px;
+    font-weight: bold;
+}
 
-        .container {
-            width: 92%;
-            max-width: 1200px;
-            margin: auto;
-        }
+.logo span {
+    color: #4da3ff;
+}
 
-        /* =========================
-           ACCUEIL
-        ========================= */
+.menu {
+    display: flex;
+    gap: 25px;
+}
 
-        .hero {
-            text-align: center;
-            padding: 100px 20px 80px;
-        }
+.menu a {
+    color: #a8b3c0;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-        .hero h1 {
-            margin: 0;
+.menu a:hover {
+    color: white;
+}
 
-            font-size: clamp(65px, 11vw, 130px);
 
-            letter-spacing: -7px;
+/* ================================
+   CONTENEUR
+================================ */
 
-            line-height: 0.9;
-        }
+.container {
+    width: 92%;
+    max-width: 1200px;
+    margin: auto;
+}
 
-        .hero p {
-            max-width: 720px;
 
-            margin: 35px auto 0;
+/* ================================
+   BIENVENUE
+================================ */
 
-            color: #9aa7b5;
+.hero {
+    text-align: center;
 
-            font-size: 18px;
+    padding: 100px 15px 85px;
+}
 
-            line-height: 1.7;
-        }
+.hero h1 {
+    margin: 0;
 
-        /* =========================
-           TITRES
-        ========================= */
+    font-size: clamp(60px, 11vw, 125px);
 
-        .section {
-            padding-bottom: 90px;
-        }
+    line-height: 0.9;
 
-        .section-title {
-            margin-bottom: 30px;
-        }
+    letter-spacing: -6px;
+}
 
-        .section-title h2 {
-            margin: 0 0 8px;
+.hero p {
+    max-width: 700px;
 
-            font-size: 30px;
-        }
+    margin: 35px auto 0;
 
-        .section-title p {
-            margin: 0;
+    color: #98a5b3;
 
-            color: #8996a5;
-        }
+    font-size: 18px;
 
-        /* =========================
-           CARTES
-        ========================= */
+    line-height: 1.7;
+}
 
-        .cards {
-            display: grid;
 
-            grid-template-columns: repeat(4, 1fr);
+/* ================================
+   SECTION
+================================ */
 
-            gap: 20px;
-        }
+.section {
+    padding-bottom: 90px;
+}
 
-        .card {
-            position: relative;
+.section-title {
+    margin-bottom: 30px;
+}
 
-            overflow: hidden;
+.section-title h2 {
+    margin: 0 0 8px;
 
-            background: #111923;
+    font-size: 30px;
+}
 
-            border: 1px solid #263343;
+.section-title p {
+    margin: 0;
 
-            border-radius: 17px;
+    color: #84919f;
+}
 
-            transition: 0.2s;
-        }
 
-        .card:hover {
-            transform: translateY(-5px);
+/* ================================
+   CARTES
+================================ */
 
-            border-color: #4da3ff;
-        }
+.cards {
+    display: grid;
 
-        .new-badge {
-            position: absolute;
+    grid-template-columns: repeat(4, 1fr);
 
-            top: 12px;
-            left: 12px;
+    gap: 20px;
+}
 
-            z-index: 5;
+.card {
+    position: relative;
 
-            padding: 6px 10px;
+    overflow: hidden;
 
-            background: #20c878;
+    background: #111923;
 
-            color: #04140c;
+    border: 1px solid #263343;
 
-            border-radius: 30px;
+    border-radius: 17px;
 
-            font-size: 12px;
+    transition: transform 0.2s,
+                border-color 0.2s;
+}
 
-            font-weight: bold;
-        }
+.card:hover {
+    transform: translateY(-5px);
 
-        .thumbnail {
-            width: 100%;
+    border-color: #4da3ff;
+}
 
-            aspect-ratio: 16 / 10;
+.badge-new {
+    position: absolute;
 
-            background: #05080c;
-        }
+    top: 12px;
+    left: 12px;
 
-        .thumbnail img {
-            width: 100%;
-            height: 100%;
+    z-index: 5;
 
-            display: block;
+    padding: 6px 11px;
 
-            object-fit: cover;
-        }
+    border-radius: 30px;
 
-        .card-content {
-            padding: 18px;
-        }
+    background: #20c878;
 
-        .category {
-            color: #4da3ff;
+    color: #04140c;
 
-            font-size: 12px;
+    font-size: 12px;
 
-            font-weight: bold;
+    font-weight: bold;
+}
 
-            text-transform: uppercase;
+.card-image {
+    width: 100%;
 
-            letter-spacing: 1px;
-        }
+    aspect-ratio: 16 / 10;
 
-        .card-title {
-            margin: 9px 0 18px;
+    background: #05080c;
 
-            min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-            font-size: 17px;
+.card-image img {
+    width: 100%;
+    height: 100%;
 
-            line-height: 1.4;
-        }
+    object-fit: cover;
 
-        .open-button {
-            width: 100%;
+    display: block;
+}
 
-            border: 0;
+.image-error {
+    color: #687787;
 
-            border-radius: 9px;
+    text-align: center;
 
-            padding: 12px;
+    padding: 20px;
 
-            background: #193552;
+    font-size: 13px;
+}
 
-            color: white;
+.card-body {
+    padding: 18px;
+}
 
-            font-weight: bold;
+.card-category {
+    color: #4da3ff;
 
-            cursor: pointer;
-        }
+    font-size: 12px;
 
-        .open-button:hover {
-            background: #245b87;
-        }
+    font-weight: bold;
 
-        /* =========================
-           MODALE
-        ========================= */
+    text-transform: uppercase;
 
-        .modal {
-            display: none;
+    letter-spacing: 1px;
+}
 
-            position: fixed;
+.card-title {
+    min-height: 50px;
 
-            inset: 0;
+    margin: 10px 0 18px;
 
-            z-index: 1000;
+    font-size: 17px;
 
-            padding: 25px;
+    line-height: 1.4;
+}
 
-            overflow-y: auto;
+.open {
+    width: 100%;
 
-            background: rgba(0, 0, 0, 0.86);
-        }
+    padding: 12px;
 
-        .modal-box {
-            width: 100%;
+    border: 0;
 
-            max-width: 1100px;
+    border-radius: 9px;
 
-            margin: auto;
+    background: #193552;
 
-            background: #0d141c;
+    color: white;
 
-            border: 1px solid #2a394a;
+    font-weight: bold;
 
-            border-radius: 20px;
+    cursor: pointer;
+}
 
-            overflow: hidden;
-        }
+.open:hover {
+    background: #285e8d;
+}
 
-        .modal-header {
-            display: flex;
 
-            align-items: center;
+/* ================================
+   MODALE
+================================ */
 
-            justify-content: space-between;
+.modal {
+    display: none;
 
-            gap: 20px;
+    position: fixed;
 
-            padding: 22px 25px;
+    inset: 0;
 
-            border-bottom: 1px solid #263343;
-        }
+    z-index: 5000;
 
-        .modal-header h2 {
-            margin: 0 0 6px;
+    overflow-y: auto;
 
-            font-size: 25px;
-        }
+    padding: 25px;
 
-        .modal-category {
-            color: #4da3ff;
+    background: rgba(0, 0, 0, 0.88);
+}
 
-            font-size: 13px;
+.modal-box {
+    width: 100%;
 
-            font-weight: bold;
+    max-width: 1100px;
 
-            text-transform: uppercase;
-        }
+    margin: auto;
 
-        .close-button {
-            width: 45px;
-            height: 45px;
+    background: #0d141c;
 
-            flex-shrink: 0;
+    border: 1px solid #2a394a;
 
-            border: 0;
+    border-radius: 20px;
 
-            border-radius: 10px;
+    overflow: hidden;
+}
 
-            background: #192430;
+.modal-header {
+    min-height: 80px;
 
-            color: white;
+    padding: 20px 25px;
 
-            font-size: 25px;
+    display: flex;
 
-            cursor: pointer;
-        }
+    align-items: center;
 
-        .close-button:hover {
-            background: #29394a;
-        }
+    justify-content: space-between;
 
-        .modal-content {
-            padding: 25px;
-        }
+    gap: 20px;
 
-        /* =========================
-           TÉLÉCHARGEMENT
-        ========================= */
+    border-bottom: 1px solid #263343;
+}
 
-        .download-area {
-            margin-bottom: 30px;
+.modal-title {
+    margin: 0 0 6px;
 
-            padding: 40px 20px;
+    font-size: 25px;
+}
 
-            text-align: center;
+.modal-category {
+    color: #4da3ff;
 
-            border: 1px dashed #385875;
+    font-size: 13px;
 
-            border-radius: 18px;
+    font-weight: bold;
 
-            background: #101a24;
-        }
+    text-transform: uppercase;
+}
 
-        .download-icon {
-            width: 75px;
-            height: 75px;
+.close {
+    width: 45px;
+    height: 45px;
 
-            margin: auto;
+    border: 0;
 
-            display: flex;
+    border-radius: 10px;
 
-            align-items: center;
-            justify-content: center;
+    background: #192430;
 
-            border-radius: 20px;
+    color: white;
 
-            background: #193552;
+    font-size: 26px;
 
-            font-size: 38px;
-        }
+    cursor: pointer;
+}
 
-        .download-area h3 {
-            margin: 18px 0 8px;
+.close:hover {
+    background: #293a4b;
+}
 
-            font-size: 21px;
-        }
+.modal-content {
+    padding: 25px;
+}
 
-        .download-area p {
-            margin: 0 0 20px;
 
-            color: #8996a5;
-        }
+/* ================================
+   TÉLÉCHARGEMENT
+================================ */
 
-        .download-button {
-            display: inline-block;
+.download-box {
+    margin-bottom: 30px;
 
-            border: 0;
+    padding: 40px 20px;
 
-            padding: 13px 22px;
+    text-align: center;
 
-            border-radius: 10px;
+    border: 1px dashed #385875;
 
-            background: #4da3ff;
+    border-radius: 18px;
 
-            color: #061321;
+    background: #101a24;
+}
 
-            font-weight: bold;
+.download-icon {
+    width: 75px;
+    height: 75px;
 
-            cursor: pointer;
-        }
+    margin: auto;
 
-        .download-button:hover {
-            background: #77c2ff;
-        }
+    display: flex;
 
-        /* =========================
-           CAISSES
-        ========================= */
+    align-items: center;
+    justify-content: center;
 
-        .parts {
-            display: grid;
+    border-radius: 20px;
 
-            grid-template-columns: repeat(3, 1fr);
+    background: #193552;
 
-            gap: 17px;
-        }
+    font-size: 38px;
+}
 
-        .part {
-            overflow: hidden;
+.download-box h3 {
+    margin: 18px 0 8px;
 
-            background: #111923;
+    font-size: 21px;
+}
 
-            border: 1px solid #263343;
+.download-box p {
+    margin: 0 0 20px;
 
-            border-radius: 15px;
-        }
+    color: #8996a5;
+}
 
-        .part-image {
-            width: 100%;
+.download-all {
+    display: inline-block;
 
-            aspect-ratio: 16 / 10;
+    padding: 13px 22px;
 
-            background: #05080c;
-        }
+    border: 0;
 
-        .part-image img {
-            width: 100%;
-            height: 100%;
+    border-radius: 10px;
 
-            display: block;
+    background: #4da3ff;
 
-            object-fit: contain;
-        }
+    color: #061321;
 
-        .part-info {
-            padding: 14px;
-        }
+    font-weight: bold;
 
-        .part-name {
-            display: block;
+    cursor: pointer;
+}
 
-            margin-bottom: 11px;
+.download-all:hover {
+    background: #77c2ff;
+}
 
-            font-size: 14px;
-        }
 
-        .download-part {
-            display: block;
+/* ================================
+   LISTE DES FICHIERS
+================================ */
 
-            padding: 10px;
+.parts {
+    display: grid;
 
-            border-radius: 8px;
+    grid-template-columns: repeat(3, 1fr);
 
-            background: #172737;
+    gap: 17px;
+}
 
-            color: white;
+.part {
+    overflow: hidden;
 
-            text-align: center;
+    background: #111923;
 
-            text-decoration: none;
+    border: 1px solid #263343;
 
-            font-size: 13px;
+    border-radius: 15px;
+}
 
-            font-weight: bold;
-        }
+.part-preview {
+    width: 100%;
 
-        .download-part:hover {
-            background: #245b87;
-        }
+    aspect-ratio: 16 / 10;
 
-        /* =========================
-           FOOTER
-        ========================= */
+    background: #05080c;
 
-        footer {
-            padding: 30px 20px;
+    display: flex;
 
-            border-top: 1px solid #202c39;
+    align-items: center;
+    justify-content: center;
+}
 
-            text-align: center;
+.part-preview img {
+    width: 100%;
+    height: 100%;
 
-            color: #6f7c8b;
-        }
+    object-fit: contain;
 
-        /* =========================
-           RESPONSIVE
-        ========================= */
+    display: block;
+}
 
-        @media (max-width: 900px) {
+.part-preview .missing {
+    color: #6d7b8a;
 
-            .cards {
-                grid-template-columns: repeat(2, 1fr);
-            }
+    text-align: center;
 
-            .parts {
-                grid-template-columns: repeat(2, 1fr);
-            }
+    padding: 15px;
 
-        }
+    font-size: 13px;
+}
 
-        @media (max-width: 600px) {
+.part-body {
+    padding: 14px;
+}
 
-            .header-content {
-                display: block;
+.part-name {
+    display: block;
 
-                padding: 18px 20px;
-            }
+    margin-bottom: 11px;
 
-            nav {
-                margin-top: 15px;
-            }
+    font-size: 14px;
 
-            nav a {
-                margin-right: 18px;
-            }
+    font-weight: bold;
+}
 
-            .hero {
-                padding: 70px 10px 60px;
-            }
+.download-part {
+    display: block;
 
-            .hero h1 {
-                letter-spacing: -4px;
-            }
+    padding: 10px;
 
-            .cards {
-                grid-template-columns: 1fr;
-            }
+    border-radius: 8px;
 
-            .parts {
-                grid-template-columns: 1fr;
-            }
+    background: #172737;
 
-            .modal {
-                padding: 10px;
-            }
+    color: white;
 
-            .modal-content {
-                padding: 15px;
-            }
+    text-align: center;
 
-        }
+    text-decoration: none;
 
-    </style>
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+.download-part:hover {
+    background: #285e8d;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+    padding: 30px 20px;
+
+    border-top: 1px solid #202c39;
+
+    color: #6f7c8b;
+
+    text-align: center;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 900px) {
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .parts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .header {
+        width: 92%;
+
+        display: block;
+
+        padding: 18px 0;
+    }
+
+    .menu {
+        margin-top: 15px;
+
+        gap: 20px;
+    }
+
+    .hero {
+        padding: 70px 10px;
+    }
+
+    .hero h1 {
+        letter-spacing: -4px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .parts {
+        grid-template-columns: 1fr;
+    }
+
+    .modal {
+        padding: 10px;
+    }
+
+    .modal-content {
+        padding: 15px;
+    }
+
+}
+
+</style>
+
 </head>
 
 
 <body>
 
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
+<!-- ==========================================
+     MENU
+========================================== -->
 
 <header>
 
-    <div class="header-content">
+    <div class="header">
 
         <div class="logo">
 
-            <span class="logo-blue">TF-FIU</span>
+            <span>TF-FIU</span>
             Maquettes papier
 
         </div>
 
 
-        <nav>
+        <div class="menu">
 
             <a href="#">
                 Accueil
@@ -601,7 +653,7 @@
                 Nouveautés
             </a>
 
-        </nav>
+        </div>
 
     </div>
 
@@ -609,76 +661,76 @@
 
 
 
-<!-- =====================================================
-     CONTENU
-===================================================== -->
+<!-- ==========================================
+     PAGE
+========================================== -->
 
 <main>
 
-    <div class="container">
+<div class="container">
 
 
-        <!-- ACCUEIL -->
+    <!-- BIENVENUE -->
 
-        <section class="hero">
+    <section class="hero">
 
-            <h1>
-                Bienvenue
-            </h1>
+        <h1>
+            Bienvenue
+        </h1>
+
+        <p>
+
+            Bienvenue sur
+            <strong>TF-FIU Maquettes papier</strong>.
+
+            <br><br>
+
+            Je publie ici mes maquettes en papier
+            de trains et de bus.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- NOUVEAUTÉS -->
+
+    <section
+        class="section"
+        id="nouveautes"
+    >
+
+        <div class="section-title">
+
+            <h2>
+                Les 4 dernières nouveautés
+            </h2>
 
             <p>
-
-                Bienvenue sur
-                <strong>TF-FIU Maquettes papier</strong>.
-
-                <br><br>
-
-                Ici je publie mes maquettes en papier
-                de trains et de bus.
-
+                Les dernières maquettes publiées.
             </p>
 
-        </section>
+        </div>
 
 
+        <div
+            class="cards"
+            id="cards"
+        ></div>
 
-        <!-- NOUVEAUTÉS -->
-
-        <section
-            class="section"
-            id="nouveautes"
-        >
-
-            <div class="section-title">
-
-                <h2>
-                    Les 4 dernières nouveautés
-                </h2>
-
-                <p>
-                    Découvrez les dernières maquettes publiées.
-                </p>
-
-            </div>
+    </section>
 
 
-            <div
-                class="cards"
-                id="maquettes"
-            ></div>
-
-        </section>
-
-
-    </div>
+</div>
 
 </main>
 
 
 
-<!-- =====================================================
-     FENÊTRE DE LA MAQUETTE
-===================================================== -->
+<!-- ==========================================
+     FENÊTRE MAQUETTE
+========================================== -->
 
 <div
     class="modal"
@@ -692,23 +744,26 @@
 
             <div>
 
-                <h2 id="modal-title">
-                </h2>
+                <h2
+                    class="modal-title"
+                    id="modalTitle"
+                ></h2>
 
                 <div
                     class="modal-category"
-                    id="modal-category"
-                >
-                </div>
+                    id="modalCategory"
+                ></div>
 
             </div>
 
 
             <button
-                class="close-button"
-                onclick="fermerMaquette()"
+                class="close"
+                onclick="closeModal()"
             >
+
                 ×
+
             </button>
 
         </div>
@@ -718,38 +773,46 @@
         <div class="modal-content">
 
 
-            <!-- BOUTON PRINCIPAL -->
+            <!-- TÉLÉCHARGEMENT -->
 
-            <div class="download-area">
+            <div class="download-box">
 
                 <div class="download-icon">
+
                     ↓
+
                 </div>
 
 
                 <h3>
+
                     Télécharger la maquette
+
                 </h3>
 
 
                 <p>
-                    Choisis une caisse ci-dessous
-                    pour télécharger son fichier PNG.
+
+                    Toutes les pièces de la maquette
+                    sont disponibles en PNG.
+
                 </p>
 
 
                 <button
-                    class="download-button"
-                    onclick="telechargerTousLesFichiers()"
+                    class="download-all"
+                    onclick="downloadAll()"
                 >
+
                     Télécharger tous les PNG
+
                 </button>
 
             </div>
 
 
 
-            <!-- LISTE DES CAISSES -->
+            <!-- FICHIERS -->
 
             <div
                 class="parts"
@@ -765,9 +828,9 @@
 
 
 
-<!-- =====================================================
+<!-- ==========================================
      FOOTER
-===================================================== -->
+========================================== -->
 
 <footer>
 
@@ -779,42 +842,35 @@
 
 <script>
 
-/*
-===========================================================
-MAQUETTES
-===========================================================
 
-IMPORTANT :
+/* =====================================================
+   CONFIGURATION
 
-Tous les fichiers sont à la RACINE du dépôt GitHub.
+   IMPORTANT :
+   TOUS LES FICHIERS SONT À LA RACINE DU GITHUB.
 
-Exemple :
+   Exemple :
 
-index.html
-miniature 734.png
-1 734.png
-2 734.png
-etc.
+   index.html
+   miniature 734.png
+   1 734.png
+   2 734.png
+   etc.
 
-===========================================================
-*/
+===================================================== */
 
 
 const maquettes = [
 
     {
 
-        titre:
-            "TGV POS Duplex OUIGO Tango",
+        titre: "TGV POS Duplex OUIGO Tango",
 
-        categorie:
-            "TGV",
+        categorie: "TGV",
 
-        nouveau:
-            true,
+        nouveau: true,
 
-        miniature:
-            "miniature 734.png",
+        miniature: "miniature 734.png",
 
         fichiers: [
 
@@ -841,10 +897,6 @@ const maquettes = [
             "bogie 734.png",
 
             "inter 734.png"
-          
-            "miniature 734.png"
-            
-            "inter 734.png"
 
         ]
 
@@ -854,27 +906,22 @@ const maquettes = [
 
 
 
-/*
-===========================================================
-VARIABLES
-===========================================================
-*/
+/* =====================================================
+   VARIABLES
+===================================================== */
 
 let maquetteActuelle = null;
 
 
 
-/*
-===========================================================
-ÉCHAPPER LES NOMS DE FICHIERS
-===========================================================
+/* =====================================================
+   URL DES FICHIERS
 
-Cela permet notamment de gérer correctement
-les espaces dans "1 734.png".
-===========================================================
-*/
+   encodeURIComponent permet de gérer correctement
+   les espaces présents dans les noms des PNG.
+===================================================== */
 
-function urlFichier(nom) {
+function fichierURL(nom) {
 
     return encodeURIComponent(nom);
 
@@ -882,14 +929,12 @@ function urlFichier(nom) {
 
 
 
-/*
-===========================================================
-AFFICHAGE DES 4 DERNIÈRES MAQUETTES
-===========================================================
-*/
+/* =====================================================
+   AFFICHER LES 4 DERNIÈRES MAQUETTES
+===================================================== */
 
-const liste =
-    document.getElementById("maquettes");
+const cards =
+    document.getElementById("cards");
 
 
 maquettes
@@ -897,44 +942,39 @@ maquettes
     .forEach(function(maquette, index) {
 
 
-        const carte =
+        const card =
             document.createElement("article");
 
 
-        carte.className =
+        card.className =
             "card";
 
 
-        let badge = "";
+        const badge =
+            maquette.nouveau
+            ? `<div class="badge-new">Nouveau</div>`
+            : "";
 
 
-        if (maquette.nouveau) {
-
-            badge =
-                '<div class="new-badge">Nouveau</div>';
-
-        }
-
-
-        carte.innerHTML = `
+        card.innerHTML = `
 
             ${badge}
 
 
-            <div class="thumbnail">
+            <div class="card-image">
 
                 <img
-                    src="${urlFichier(maquette.miniature)}"
+                    src="${fichierURL(maquette.miniature)}"
                     alt="${maquette.titre}"
-                    onerror="imageIntrouvable(this)"
+                    onerror="this.outerHTML='<div class=&quot;image-error&quot;>Miniature<br>miniature 734.png</div>'"
                 >
 
             </div>
 
 
-            <div class="card-content">
+            <div class="card-body">
 
-                <div class="category">
+                <div class="card-category">
 
                     ${maquette.categorie}
 
@@ -949,8 +989,8 @@ maquettes
 
 
                 <button
-                    class="open-button"
-                    onclick="ouvrirMaquette(${index})"
+                    class="open"
+                    onclick="openModel(${index})"
                 >
 
                     Voir la maquette
@@ -962,33 +1002,17 @@ maquettes
         `;
 
 
-        liste.appendChild(carte);
+        cards.appendChild(card);
 
     });
 
 
 
-/*
-===========================================================
-IMAGE INTROUVABLE
-===========================================================
-*/
+/* =====================================================
+   OUVRIR LA MAQUETTE
+===================================================== */
 
-function imageIntrouvable(image) {
-
-    image.style.display = "none";
-
-}
-
-
-
-/*
-===========================================================
-OUVRIR LA MAQUETTE
-===========================================================
-*/
-
-function ouvrirMaquette(index) {
+function openModel(index) {
 
 
     maquetteActuelle =
@@ -996,13 +1020,13 @@ function ouvrirMaquette(index) {
 
 
     document.getElementById(
-        "modal-title"
+        "modalTitle"
     ).textContent =
         maquetteActuelle.titre;
 
 
     document.getElementById(
-        "modal-category"
+        "modalCategory"
     ).textContent =
         maquetteActuelle.categorie;
 
@@ -1017,40 +1041,40 @@ function ouvrirMaquette(index) {
 
 
     maquetteActuelle.fichiers
-        .forEach(function(fichier, index) {
+        .forEach(function(nom, index) {
 
 
             const url =
-                urlFichier(fichier);
+                fichierURL(nom);
 
 
-            const bloc =
+            const part =
                 document.createElement("article");
 
 
-            bloc.className =
+            part.className =
                 "part";
 
 
-            bloc.innerHTML = `
+            part.innerHTML = `
 
-                <div class="part-image">
+                <div class="part-preview">
 
                     <img
                         src="${url}"
-                        alt="${fichier}"
-                        onerror="imageIntrouvable(this)"
+                        alt="${nom}"
+                        onerror="this.outerHTML='<div class=&quot;missing&quot;>Image introuvable<br>${nom}</div>'"
                     >
 
                 </div>
 
 
-                <div class="part-info">
+                <div class="part-body">
 
                     <span class="part-name">
 
                         ${index + 1}.
-                        ${fichier}
+                        ${nom}
 
                     </span>
 
@@ -1058,7 +1082,7 @@ function ouvrirMaquette(index) {
                     <a
                         class="download-part"
                         href="${url}"
-                        download="${fichier}"
+                        download="${nom}"
                     >
 
                         Télécharger le PNG
@@ -1070,7 +1094,7 @@ function ouvrirMaquette(index) {
             `;
 
 
-            parts.appendChild(bloc);
+            parts.appendChild(part);
 
         });
 
@@ -1089,13 +1113,11 @@ function ouvrirMaquette(index) {
 
 
 
-/*
-===========================================================
-FERMER LA MAQUETTE
-===========================================================
-*/
+/* =====================================================
+   FERMER
+===================================================== */
 
-function fermerMaquette() {
+function closeModal() {
 
 
     document.getElementById(
@@ -1111,11 +1133,9 @@ function fermerMaquette() {
 
 
 
-/*
-===========================================================
-FERMER EN CLIQUANT EN DEHORS
-===========================================================
-*/
+/* =====================================================
+   FERMER EN CLIQUANT EN DEHORS
+===================================================== */
 
 document
     .getElementById("modal")
@@ -1128,7 +1148,7 @@ document
                 document.getElementById("modal")
             ) {
 
-                fermerMaquette();
+                closeModal();
 
             }
 
@@ -1137,20 +1157,11 @@ document
 
 
 
-/*
-===========================================================
-TOUS LES TÉLÉCHARGEMENTS
-===========================================================
+/* =====================================================
+   TÉLÉCHARGER TOUS LES PNG
+===================================================== */
 
-Le navigateur peut demander l'autorisation pour
-plusieurs téléchargements.
-
-Les téléchargements individuels restent disponibles
-dans tous les cas.
-===========================================================
-*/
-
-function telechargerTousLesFichiers() {
+function downloadAll() {
 
 
     if (!maquetteActuelle) {
@@ -1161,34 +1172,34 @@ function telechargerTousLesFichiers() {
 
 
     maquetteActuelle.fichiers
-        .forEach(function(fichier, index) {
+        .forEach(function(nom, index) {
 
 
             setTimeout(function() {
 
 
-                const lien =
+                const link =
                     document.createElement("a");
 
 
-                lien.href =
-                    urlFichier(fichier);
+                link.href =
+                    fichierURL(nom);
 
 
-                lien.download =
-                    fichier;
+                link.download =
+                    nom;
 
 
-                document.body.appendChild(lien);
+                document.body.appendChild(link);
 
 
-                lien.click();
+                link.click();
 
 
-                document.body.removeChild(lien);
+                document.body.removeChild(link);
 
 
-            }, index * 600);
+            }, index * 700);
 
         });
 
@@ -1198,4 +1209,5 @@ function telechargerTousLesFichiers() {
 
 
 </body>
+
 </html>
