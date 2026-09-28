@@ -26,7 +26,7 @@ body {
 
 
 /* =========================
-   MENU
+   HEADER
 ========================= */
 
 header {
@@ -34,14 +34,17 @@ header {
     top: 0;
     z-index: 1000;
 
-    background: rgba(8, 12, 18, 0.96);
+    background: rgba(8, 12, 18, 0.97);
+
     border-bottom: 1px solid #263343;
+
     backdrop-filter: blur(10px);
 }
 
 .header {
     width: 92%;
     max-width: 1200px;
+
     min-height: 70px;
 
     margin: auto;
@@ -62,7 +65,6 @@ header {
 
 .menu {
     display: flex;
-    align-items: center;
     gap: 25px;
 }
 
@@ -78,7 +80,7 @@ header {
 
 
 /* =========================
-   PAGE
+   CONTENEUR
 ========================= */
 
 .container {
@@ -94,6 +96,7 @@ header {
 
 .hero {
     text-align: center;
+
     padding: 90px 10px 70px;
 }
 
@@ -102,7 +105,8 @@ header {
 
     font-size: clamp(60px, 11vw, 125px);
 
-    line-height: 0.9;
+    line-height: .9;
+
     letter-spacing: -6px;
 }
 
@@ -114,12 +118,13 @@ header {
     color: #98a5b3;
 
     font-size: 18px;
+
     line-height: 1.7;
 }
 
 
 /* =========================
-   TITRES
+   SECTIONS
 ========================= */
 
 .section {
@@ -132,11 +137,13 @@ header {
 
 .section-title h2 {
     margin: 0 0 8px;
+
     font-size: 30px;
 }
 
 .section-title p {
     margin: 0;
+
     color: #84919f;
 }
 
@@ -154,31 +161,32 @@ header {
 }
 
 .category {
+    min-height: 100px;
+
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    min-height: 85px;
-
     border: 1px solid #263343;
 
-    border-radius: 15px;
+    border-radius: 17px;
 
     background: #111923;
 
     color: white;
 
-    font-size: 20px;
+    font-size: 21px;
+
     font-weight: bold;
 
-    text-decoration: none;
+    cursor: pointer;
 
-    transition: 0.2s;
+    transition: .2s;
 }
 
 .category:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
 
     border-color: #4da3ff;
 
@@ -187,7 +195,7 @@ header {
 
 
 /* =========================
-   CARTES NOUVEAUTÉS
+   CARTES
 ========================= */
 
 .cards {
@@ -209,7 +217,7 @@ header {
 
     border-radius: 17px;
 
-    transition: 0.2s;
+    transition: .2s;
 }
 
 .card:hover {
@@ -306,7 +314,68 @@ header {
 
 
 /* =========================
-   FENÊTRE MAQUETTE
+   PAGE CATÉGORIE
+========================= */
+
+.category-page {
+    display: none;
+
+    min-height: calc(100vh - 70px);
+
+    padding: 70px 0;
+}
+
+.category-page.active {
+    display: block;
+}
+
+.category-page-header {
+    margin-bottom: 40px;
+}
+
+.category-page-header h1 {
+    margin: 0 0 10px;
+
+    font-size: 55px;
+}
+
+.category-page-header p {
+    margin: 0;
+
+    color: #8996a5;
+
+    font-size: 17px;
+}
+
+.back-button {
+    display: inline-block;
+
+    margin-bottom: 30px;
+
+    padding: 11px 18px;
+
+    border: 1px solid #263343;
+
+    border-radius: 9px;
+
+    background: #111923;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+.back-button:hover {
+    background: #193552;
+
+    border-color: #4da3ff;
+}
+
+
+/* =========================
+   MODALE
 ========================= */
 
 .modal {
@@ -322,11 +391,12 @@ header {
 
     padding: 25px;
 
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, .9);
 }
 
 .modal-box {
     width: 100%;
+
     max-width: 1100px;
 
     margin: auto;
@@ -346,6 +416,7 @@ header {
     display: flex;
 
     align-items: center;
+
     justify-content: space-between;
 
     border-bottom: 1px solid #263343;
@@ -382,25 +453,19 @@ header {
     cursor: pointer;
 }
 
-.close:hover {
-    background: #293a4b;
-}
-
 .modal-content {
     padding: 25px;
 }
 
 
 /* =========================
-   MINIATURE DANS LA FENÊTRE
+   MINIATURE
 ========================= */
 
 .modal-miniature {
     width: 100%;
 
-    max-width: 850px;
-
-    margin: 0 auto 30px;
+    margin-bottom: 30px;
 
     text-align: center;
 }
@@ -408,7 +473,7 @@ header {
 .modal-miniature img {
     width: 100%;
 
-    max-height: 450px;
+    max-height: 500px;
 
     object-fit: contain;
 
@@ -521,9 +586,9 @@ header {
     width: 100%;
     height: 100%;
 
-    object-fit: contain;
-
     display: block;
+
+    object-fit: contain;
 }
 
 .part-body {
@@ -536,6 +601,7 @@ header {
     margin-bottom: 11px;
 
     font-size: 14px;
+
     font-weight: bold;
 }
 
@@ -598,9 +664,9 @@ footer {
 @media (max-width: 600px) {
 
     .header {
-        padding: 18px 0;
-
         display: block;
+
+        padding: 18px 0;
     }
 
     .menu {
@@ -627,6 +693,10 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .category-page-header h1 {
+        font-size: 42px;
+    }
+
     .modal {
         padding: 10px;
     }
@@ -638,15 +708,16 @@ footer {
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- =========================
+<!-- ==========================================
      MENU
-========================= -->
+========================================== -->
 
 <header>
 
@@ -658,15 +729,24 @@ footer {
 
         <div class="menu">
 
-            <a href="#">
+            <a
+                href="#"
+                onclick="showHome()"
+            >
                 Accueil
             </a>
 
-            <a href="#categories">
+            <a
+                href="#categories"
+                onclick="showHome()"
+            >
                 Catégories
             </a>
 
-            <a href="#nouveautes">
+            <a
+                href="#nouveautes"
+                onclick="showHome()"
+            >
                 Nouveautés
             </a>
 
@@ -677,117 +757,125 @@ footer {
 </header>
 
 
-<main>
+
+<!-- ==========================================
+     PAGE D'ACCUEIL
+========================================== -->
+
+<main id="homePage">
 
 <div class="container">
 
 
-<!-- =========================
-     BIENVENUE
-========================= -->
+    <!-- BIENVENUE -->
 
-<section class="hero">
+    <section class="hero">
 
-    <h1>
-        Bienvenue
-    </h1>
-
-    <p>
-
-        Bienvenue sur
-        <strong>TF-FIU Maquettes papier</strong>.
-
-        <br><br>
-
-        Je publie ici mes maquettes en papier
-        de trains et de bus.
-
-    </p>
-
-</section>
-
-
-<!-- =========================
-     CATÉGORIES
-========================= -->
-
-<section
-    class="section"
-    id="categories"
->
-
-    <div class="section-title">
-
-        <h2>
-            Catégories
-        </h2>
+        <h1>
+            Bienvenue
+        </h1>
 
         <p>
-            Retrouvez les maquettes par type de train.
+
+            Bienvenue sur
+            <strong>TF-FIU Maquettes papier</strong>.
+
+            <br><br>
+
+            Je publie ici mes maquettes en papier
+            de trains et de bus.
+
         </p>
 
-    </div>
+    </section>
 
 
-    <div class="categories">
 
-        <a
-            class="category"
-            href="#nouveautes"
-            onclick="filtrerCategorie('TGV')"
-        >
-            🚄 TGV
-        </a>
+    <!-- CATÉGORIES -->
 
-        <a
-            class="category"
-            href="#nouveautes"
-            onclick="filtrerCategorie('TER')"
-        >
-            🚆 TER
-        </a>
+    <section
+        class="section"
+        id="categories"
+    >
 
-        <a
-            class="category"
-            href="#nouveautes"
-            onclick="filtrerCategorie('RER')"
-        >
-            🚇 RER
-        </a>
+        <div class="section-title">
 
-    </div>
+            <h2>
+                Catégories
+            </h2>
 
-</section>
+            <p>
+                Choisissez une catégorie.
+            </p>
+
+        </div>
 
 
-<!-- =========================
-     NOUVEAUTÉS
-========================= -->
-
-<section
-    class="section"
-    id="nouveautes"
->
-
-    <div class="section-title">
-
-        <h2>
-            Les 4 dernières nouveautés
-        </h2>
-
-        <p id="filtreTexte">
-            Les dernières maquettes publiées.
-        </p>
-
-    </div>
+        <div class="categories">
 
 
-    <div
-        class="cards"
-        id="cards"
-    ></div>
+            <button
+                class="category"
+                onclick="showCategory('TGV')"
+            >
 
-</section>
+                🚄 TGV
+
+            </button>
+
+
+            <button
+                class="category"
+                onclick="showCategory('TER')"
+            >
+
+                🚆 TER
+
+            </button>
+
+
+            <button
+                class="category"
+                onclick="showCategory('RER')"
+            >
+
+                🚇 RER
+
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- NOUVEAUTÉS -->
+
+    <section
+        class="section"
+        id="nouveautes"
+    >
+
+        <div class="section-title">
+
+            <h2>
+                Les 4 dernières nouveautés
+            </h2>
+
+            <p>
+                Les dernières maquettes publiées.
+            </p>
+
+        </div>
+
+
+        <div
+            class="cards"
+            id="homeCards"
+        ></div>
+
+    </section>
 
 
 </div>
@@ -795,101 +883,156 @@ footer {
 </main>
 
 
-<!-- =========================
-     MODALE
-========================= -->
+
+<!-- ==========================================
+     PAGE CATÉGORIE
+========================================== -->
+
+<section
+    class="category-page"
+    id="categoryPage"
+>
+
+<div class="container">
+
+
+    <button
+        class="back-button"
+        onclick="showHome()"
+    >
+
+        ← Retour à l'accueil
+
+    </button>
+
+
+    <div class="category-page-header">
+
+        <h1 id="categoryTitle">
+        </h1>
+
+        <p id="categoryDescription">
+        </p>
+
+    </div>
+
+
+    <div
+        class="cards"
+        id="categoryCards"
+    ></div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ==========================================
+     FENÊTRE DE LA MAQUETTE
+========================================== -->
 
 <div
     class="modal"
     id="modal"
 >
 
-    <div class="modal-box">
+<div class="modal-box">
 
 
-        <div class="modal-header">
+    <div class="modal-header">
 
-            <div>
+        <div>
 
-                <h2
-                    class="modal-title"
-                    id="modalTitle"
-                ></h2>
+            <h2
+                class="modal-title"
+                id="modalTitle"
+            ></h2>
 
-                <div
-                    class="modal-category"
-                    id="modalCategory"
-                ></div>
+            <div
+                class="modal-category"
+                id="modalCategory"
+            ></div>
 
+        </div>
+
+
+        <button
+            class="close"
+            onclick="closeModal()"
+        >
+
+            ×
+
+        </button>
+
+    </div>
+
+
+
+    <div class="modal-content">
+
+
+        <!-- MINIATURE DE LA MAQUETTE -->
+
+        <div class="modal-miniature">
+
+            <img
+                id="modalMiniature"
+                src=""
+                alt=""
+            >
+
+        </div>
+
+
+        <!-- TÉLÉCHARGEMENT -->
+
+        <div class="download-box">
+
+            <div class="download-icon">
+                ↓
             </div>
 
 
+            <h3>
+                Télécharger la maquette
+            </h3>
+
+
+            <p>
+                Toutes les pièces sont disponibles
+                au format PNG.
+            </p>
+
+
             <button
-                class="close"
-                onclick="closeModal()"
+                class="download-all"
+                onclick="downloadAll()"
             >
-                ×
+
+                Télécharger tous les PNG
+
             </button>
 
         </div>
 
 
-        <div class="modal-content">
+        <!-- FICHIERS -->
 
+        <div
+            class="parts"
+            id="parts"
+        ></div>
 
-            <!-- MINIATURE -->
-
-            <div class="modal-miniature">
-
-                <img
-                    id="modalMiniature"
-                    src=""
-                    alt="Miniature de la maquette"
-                >
-
-            </div>
-
-
-            <!-- TÉLÉCHARGEMENT -->
-
-            <div class="download-box">
-
-                <div class="download-icon">
-                    ↓
-                </div>
-
-                <h3>
-                    Télécharger la maquette
-                </h3>
-
-                <p>
-                    Téléchargez les différentes parties
-                    de la maquette au format PNG.
-                </p>
-
-                <button
-                    class="download-all"
-                    onclick="downloadAll()"
-                >
-                    Télécharger tous les PNG
-                </button>
-
-            </div>
-
-
-            <!-- FICHIERS -->
-
-            <div
-                class="parts"
-                id="parts"
-            ></div>
-
-
-        </div>
 
     </div>
 
 </div>
+
+</div>
+
 
 
 <footer>
@@ -897,6 +1040,7 @@ footer {
     TF-FIU Maquettes papier
 
 </footer>
+
 
 
 <script>
@@ -909,18 +1053,13 @@ footer {
 const maquettes = [
 
     {
+        titre: "TGV POS Duplex OUIGO Tango",
 
-        titre:
-            "TGV POS Duplex OUIGO Tango",
+        categorie: "TGV",
 
-        categorie:
-            "TGV",
+        nouveau: true,
 
-        nouveau:
-            true,
-
-        miniature:
-            "miniature 734.png",
+        miniature: "miniature 734.png",
 
         fichiers: [
 
@@ -948,7 +1087,7 @@ let maquetteActuelle = null;
 
 
 /* =====================================================
-   CHEMIN DES FICHIERS
+   URL DES FICHIERS
 ===================================================== */
 
 function fichierURL(nom) {
@@ -959,77 +1098,213 @@ function fichierURL(nom) {
 
 
 /* =====================================================
-   AFFICHER LES NOUVEAUTÉS
+   CRÉER UNE CARTE
 ===================================================== */
 
-function afficherMaquettes(liste) {
+function creerCarte(maquette) {
+
+    const index =
+        maquettes.indexOf(maquette);
+
+
+    const card =
+        document.createElement("article");
+
+
+    card.className = "card";
+
+
+    const badge =
+        maquette.nouveau
+        ? `<div class="badge-new">Nouveau</div>`
+        : "";
+
+
+    card.innerHTML = `
+
+        ${badge}
+
+
+        <div class="card-image">
+
+            <img
+                src="${fichierURL(maquette.miniature)}"
+                alt="${maquette.titre}"
+            >
+
+        </div>
+
+
+        <div class="card-body">
+
+            <div class="card-category">
+
+                ${maquette.categorie}
+
+            </div>
+
+
+            <div class="card-title">
+
+                ${maquette.titre}
+
+            </div>
+
+
+            <button
+                class="open"
+                onclick="openModel(${index})"
+            >
+
+                Voir la maquette
+
+            </button>
+
+        </div>
+
+    `;
+
+
+    return card;
+
+}
+
+
+/* =====================================================
+   ACCUEIL
+===================================================== */
+
+function afficherAccueil() {
 
     const cards =
-        document.getElementById("cards");
+        document.getElementById("homeCards");
+
 
     cards.innerHTML = "";
 
 
-    liste.forEach(function(maquette) {
+    maquettes
+        .slice(0, 4)
+        .forEach(function(maquette) {
 
-        const index =
-            maquettes.indexOf(maquette);
+            cards.appendChild(
+                creerCarte(maquette)
+            );
 
+        });
 
-        const card =
-            document.createElement("article");
-
-
-        card.className =
-            "card";
-
-
-        const badge =
-            maquette.nouveau
-            ? `<div class="badge-new">Nouveau</div>`
-            : "";
+}
 
 
-        card.innerHTML = `
+/* =====================================================
+   AFFICHER LA CATÉGORIE
+===================================================== */
 
-            ${badge}
-
-            <div class="card-image">
-
-                <img
-                    src="${fichierURL(maquette.miniature)}"
-                    alt="${maquette.titre}"
-                >
-
-            </div>
+function showCategory(categorie) {
 
 
-            <div class="card-body">
+    /* Cacher complètement l'accueil */
 
-                <div class="card-category">
-                    ${maquette.categorie}
-                </div>
-
-
-                <div class="card-title">
-                    ${maquette.titre}
-                </div>
+    document.getElementById(
+        "homePage"
+    ).style.display = "none";
 
 
-                <button
-                    class="open"
-                    onclick="openModel(${index})"
-                >
-                    Voir la maquette
-                </button>
+    /* Afficher la page catégorie */
 
-            </div>
+    document.getElementById(
+        "categoryPage"
+    ).classList.add("active");
+
+
+    /* Titre */
+
+    document.getElementById(
+        "categoryTitle"
+    ).textContent =
+        categorie;
+
+
+    document.getElementById(
+        "categoryDescription"
+    ).textContent =
+        "Toutes les maquettes de la catégorie " +
+        categorie + ".";
+
+
+    /* Cartes */
+
+    const cards =
+        document.getElementById("categoryCards");
+
+
+    cards.innerHTML = "";
+
+
+    const resultats =
+        maquettes.filter(function(maquette) {
+
+            return maquette.categorie === categorie;
+
+        });
+
+
+    if (resultats.length === 0) {
+
+        cards.innerHTML = `
+
+            <p style="
+                color:#8996a5;
+                font-size:18px;
+            ">
+
+                Aucune maquette dans cette catégorie
+                pour le moment.
+
+            </p>
 
         `;
 
+    }
 
-        cards.appendChild(card);
 
+    resultats.forEach(function(maquette) {
+
+        cards.appendChild(
+            creerCarte(maquette)
+        );
+
+    });
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =====================================================
+   RETOUR À L'ACCUEIL
+===================================================== */
+
+function showHome() {
+
+
+    document.getElementById(
+        "categoryPage"
+    ).classList.remove("active");
+
+
+    document.getElementById(
+        "homePage"
+    ).style.display = "block";
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
     });
 
 }
@@ -1039,34 +1314,7 @@ function afficherMaquettes(liste) {
    AFFICHAGE INITIAL
 ===================================================== */
 
-afficherMaquettes(
-    maquettes.slice(0, 4)
-);
-
-
-/* =====================================================
-   FILTRE TGV / TER / RER
-===================================================== */
-
-function filtrerCategorie(categorie) {
-
-    const resultat =
-        maquettes.filter(function(maquette) {
-
-            return maquette.categorie === categorie;
-
-        });
-
-
-    document.getElementById(
-        "filtreTexte"
-    ).textContent =
-        "Maquettes de la catégorie " + categorie + ".";
-
-
-    afficherMaquettes(resultat);
-
-}
+afficherAccueil();
 
 
 /* =====================================================
@@ -1074,6 +1322,7 @@ function filtrerCategorie(categorie) {
 ===================================================== */
 
 function openModel(index) {
+
 
     maquetteActuelle =
         maquettes[index];
@@ -1091,30 +1340,39 @@ function openModel(index) {
         maquetteActuelle.categorie;
 
 
-    /* MINIATURE */
+    /* =========================
+       MINIATURE
+    ========================= */
 
-    document.getElementById(
-        "modalMiniature"
-    ).src =
-        fichierURL(maquetteActuelle.miniature);
+    const miniature =
+        document.getElementById(
+            "modalMiniature"
+        );
 
 
-    document.getElementById(
-        "modalMiniature"
-    ).alt =
+    miniature.src =
+        fichierURL(
+            maquetteActuelle.miniature
+        );
+
+
+    miniature.alt =
         maquetteActuelle.titre;
 
 
-    /* FICHIERS */
+    /* =========================
+       FICHIERS
+    ========================= */
 
     const parts =
         document.getElementById("parts");
 
+
     parts.innerHTML = "";
 
 
-    maquetteActuelle.fichiers.forEach(
-        function(nom, index) {
+    maquetteActuelle.fichiers
+        .forEach(function(nom, index) {
 
 
             const url =
@@ -1168,8 +1426,7 @@ function openModel(index) {
 
             parts.appendChild(part);
 
-        }
-    );
+        });
 
 
     document.getElementById(
@@ -1185,7 +1442,7 @@ function openModel(index) {
 
 
 /* =====================================================
-   FERMER
+   FERMER LA MAQUETTE
 ===================================================== */
 
 function closeModal() {
@@ -1203,7 +1460,7 @@ function closeModal() {
 
 
 /* =====================================================
-   FERMER EN CLIQUANT À CÔTÉ
+   CLIQUER EN DEHORS DE LA FENÊTRE
 ===================================================== */
 
 document
@@ -1236,36 +1493,32 @@ function downloadAll() {
     }
 
 
-    maquetteActuelle.fichiers.forEach(
-        function(nom, index) {
+    maquetteActuelle.fichiers
+        .forEach(function(nom, index) {
 
-            setTimeout(
-                function() {
+            setTimeout(function() {
 
-                    const link =
-                        document.createElement("a");
-
-
-                    link.href =
-                        fichierURL(nom);
+                const link =
+                    document.createElement("a");
 
 
-                    link.download =
-                        nom;
+                link.href =
+                    fichierURL(nom);
 
 
-                    document.body.appendChild(link);
+                link.download =
+                    nom;
 
-                    link.click();
 
-                    document.body.removeChild(link);
+                document.body.appendChild(link);
 
-                },
-                index * 600
-            );
+                link.click();
 
-        }
-    );
+                document.body.removeChild(link);
+
+            }, index * 600);
+
+        });
 
 }
 
