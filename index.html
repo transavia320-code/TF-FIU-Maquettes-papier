@@ -176,7 +176,7 @@ nav button:hover {
 }
 
 /* =========================
-   CARDS
+   CARTES
 ========================= */
 
 .cards {
@@ -250,7 +250,7 @@ nav button:hover {
 }
 
 /* =========================
-   CATEGORY PAGE
+   PAGE CATEGORIE
 ========================= */
 
 .category-page {
@@ -294,7 +294,7 @@ nav button:hover {
 }
 
 /* =========================
-   MODAL
+   MODALE
 ========================= */
 
 .modal {
@@ -407,7 +407,7 @@ nav button:hover {
 }
 
 /* =========================
-   DOWNLOAD
+   TELECHARGEMENT
 ========================= */
 
 .download-box {
@@ -442,7 +442,7 @@ nav button:hover {
 }
 
 /* =========================
-   PARTS / PNG
+   PNG
 ========================= */
 
 .parts {
@@ -587,21 +587,43 @@ footer {
 
 <body>
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
+
     <div class="header-inner">
 
-        <div class="logo" onclick="showHome()">
+        <div
+            class="logo"
+            onclick="showHome()"
+        >
             TF-FIU <span>Maquettes papier</span>
         </div>
 
         <nav>
-            <button onclick="showHome()">Accueil</button>
-            <button onclick="showCategory('TGV')">TGV</button>
-            <button onclick="showCategory('TER')">TER</button>
-            <button onclick="showCategory('RER')">RER</button>
+
+            <button onclick="showHome()">
+                Accueil
+            </button>
+
+            <button onclick="showCategory('TGV')">
+                TGV
+            </button>
+
+            <button onclick="showCategory('TER')">
+                TER
+            </button>
+
+            <button onclick="showCategory('RER')">
+                RER
+            </button>
+
         </nav>
 
     </div>
+
 </header>
 
 
@@ -630,15 +652,17 @@ footer {
 
         <!-- CATEGORIES -->
 
-        <section class="section" id="categories">
+        <section class="section">
 
             <div class="section-title">
 
-                <div>
-                    <h2>Catégories</h2>
-                </div>
+                <h2>
+                    Catégories
+                </h2>
 
-                <p>Choisissez une catégorie</p>
+                <p>
+                    Choisissez une catégorie
+                </p>
 
             </div>
 
@@ -673,17 +697,20 @@ footer {
 
         <!-- NOUVEAUTES -->
 
-        <section class="section" id="nouveautes">
+        <section class="section">
 
             <div class="section-title">
 
-                <div>
-                    <h2>Les dernières nouveautés</h2>
-                </div>
+                <h2>
+                    Les 4 dernières nouveautés
+                </h2>
 
-                <p>Les dernières maquettes publiées</p>
+                <p>
+                    Les dernières maquettes publiées
+                </p>
 
             </div>
+
 
             <div
                 class="cards"
@@ -736,7 +763,7 @@ footer {
 
 
 <!-- =========================
-     MODALE MODELE
+     MODALE
 ========================= -->
 
 <div
@@ -761,6 +788,7 @@ footer {
                 ></div>
 
             </div>
+
 
             <button
                 class="close"
@@ -792,7 +820,9 @@ footer {
 
             <div class="description-box">
 
-                <h3>Description</h3>
+                <h3>
+                    Description
+                </h3>
 
                 <p id="modalDescription"></p>
 
@@ -817,7 +847,7 @@ footer {
             </div>
 
 
-            <!-- PNG -->
+            <!-- FICHIERS PNG -->
 
             <div
                 class="parts"
@@ -838,16 +868,33 @@ footer {
 
 <script>
 
-/* =========================
-   DONNEES DES MAQUETTES
-========================= */
+/* =========================================================
+   MAQUETTES
+   =========================================================
+   
+   Pour chaque maquette tu peux maintenant mettre :
+
+   titre
+   description
+   categorie
+   nouveau
+   miniature
+   fichiers
+
+   La description est indépendante du titre.
+========================================================= */
 
 const maquettes = [
 
     {
         titre: "TGV POS Duplex OUIGO Tango",
+
+        description: "TGV POS Duplex OUIGO Tango",
+
         categorie: "TGV",
+
         nouveau: true,
+
         miniature: "miniature 734.png",
 
         fichiers: [
@@ -866,10 +913,16 @@ const maquettes = [
         ]
     },
 
+
     {
         titre: "TGV M OUIGO Italia 1404",
+
+        description: "TGV M OUIGO Italia 1404",
+
         categorie: "TGV",
+
         nouveau: true,
+
         miniature: "miniature.png",
 
         fichiers: [
@@ -892,12 +945,16 @@ const maquettes = [
 ];
 
 
+/* =========================================================
+   VARIABLE MAQUETTE ACTUELLE
+========================================================= */
+
 let maquetteActuelle = null;
 
 
-/* =========================
-   URL DES FICHIERS
-========================= */
+/* =========================================================
+   URL FICHIER
+========================================================= */
 
 function fichierURL(nom) {
 
@@ -906,15 +963,19 @@ function fichierURL(nom) {
 }
 
 
-/* =========================
+/* =========================================================
    CREER UNE CARTE
-========================= */
+========================================================= */
 
 function creerCarte(maquette) {
 
-    const index = maquettes.indexOf(maquette);
+    const index =
+        maquettes.indexOf(maquette);
 
-    const card = document.createElement("article");
+
+    const card =
+        document.createElement("article");
+
 
     card.className = "card";
 
@@ -937,9 +998,11 @@ function creerCarte(maquette) {
                 ${maquette.categorie}
             </div>
 
+
             <div class="card-title">
                 ${maquette.titre}
             </div>
+
 
             <button
                 class="card-button"
@@ -958,21 +1021,24 @@ function creerCarte(maquette) {
 }
 
 
-/* =========================
-   AFFICHER ACCUEIL
-========================= */
+/* =========================================================
+   ACCUEIL
+========================================================= */
 
 function afficherAccueil() {
 
     const cards =
         document.getElementById("homeCards");
 
+
     cards.innerHTML = "";
 
 
     const nouveautes =
         maquettes
-            .filter(maquette => maquette.nouveau)
+            .filter(
+                maquette => maquette.nouveau
+            )
             .slice(0, 4);
 
 
@@ -1001,9 +1067,9 @@ function afficherAccueil() {
 }
 
 
-/* =========================
-   AFFICHER UNE CATEGORIE
-========================= */
+/* =========================================================
+   OUVRIR UNE CATEGORIE
+========================================================= */
 
 function showCategory(categorie) {
 
@@ -1011,10 +1077,8 @@ function showCategory(categorie) {
         .style.display = "none";
 
 
-    const categoryPage =
-        document.getElementById("categoryPage");
-
-    categoryPage.classList.add("active");
+    document.getElementById("categoryPage")
+        .classList.add("active");
 
 
     document.getElementById("categoryTitle")
@@ -1030,6 +1094,7 @@ function showCategory(categorie) {
 
     const cards =
         document.getElementById("categoryCards");
+
 
     cards.innerHTML = "";
 
@@ -1073,9 +1138,9 @@ function showCategory(categorie) {
 }
 
 
-/* =========================
+/* =========================================================
    RETOUR ACCUEIL
-========================= */
+========================================================= */
 
 function showHome() {
 
@@ -1095,9 +1160,9 @@ function showHome() {
 }
 
 
-/* =========================
+/* =========================================================
    OUVRIR UNE MAQUETTE
-========================= */
+========================================================= */
 
 function openModel(index) {
 
@@ -1112,12 +1177,11 @@ function openModel(index) {
         maquetteActuelle.titre;
 
 
-    /* DESCRIPTION
-       = UNIQUEMENT LE TITRE */
+    /* DESCRIPTION */
 
     document.getElementById("modalDescription")
         .textContent =
-        maquetteActuelle.titre;
+        maquetteActuelle.description;
 
 
     /* CATEGORIE */
@@ -1203,7 +1267,7 @@ function openModel(index) {
         });
 
 
-    /* OUVERTURE MODALE */
+    /* AFFICHER LA MODALE */
 
     document.getElementById("modal")
         .style.display = "block";
@@ -1215,9 +1279,9 @@ function openModel(index) {
 }
 
 
-/* =========================
+/* =========================================================
    FERMER LA MODALE
-========================= */
+========================================================= */
 
 function closeModal() {
 
@@ -1225,15 +1289,14 @@ function closeModal() {
         .style.display = "none";
 
 
-    document.body.style.overflow =
-        "";
+    document.body.style.overflow = "";
 
 }
 
 
-/* =========================
-   CLIC EN DEHORS DE LA MODALE
-========================= */
+/* =========================================================
+   CLIC EN DEHORS
+========================================================= */
 
 document.getElementById("modal")
     .addEventListener(
@@ -1253,9 +1316,9 @@ document.getElementById("modal")
     );
 
 
-/* =========================
+/* =========================================================
    TOUCHE ECHAP
-========================= */
+========================================================= */
 
 document.addEventListener(
     "keydown",
@@ -1271,9 +1334,9 @@ document.addEventListener(
 );
 
 
-/* =========================
+/* =========================================================
    TELECHARGER TOUS LES PNG
-========================= */
+========================================================= */
 
 function downloadAll() {
 
@@ -1313,9 +1376,9 @@ function downloadAll() {
 }
 
 
-/* =========================
-   DEMARRAGE
-========================= */
+/* =========================================================
+   LANCEMENT
+========================================================= */
 
 afficherAccueil();
 
