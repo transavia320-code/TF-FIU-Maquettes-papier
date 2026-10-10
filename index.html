@@ -968,18 +968,42 @@ function downloadAll() {
 }
 
 /* =========================================================
-   FONDS D'ECRAN : CHANGEMENT TOUTES LES 15 SECONDES
+   FOND D'ECRAN : ALTERNANCE TOUTES LES 15 SECONDES
 ========================================================= */
 
-// Les images doivent être dans le même dossier que le fichier HTML.
-// Noms reconnus :
-// Fond d'ecran.jpg
-// Fond d'ecran 1.jpg
-// Fond d'ecran 2.jpg
-// Fond d'ecran 3.jpg, etc.
-//
-// Le script teste jusqu'à 50 images numérotées et ignore
-// automatiquement celles qui ne sont pas présentes.
+const imagesFond = [
+    "Fond d'ecran .jpg",
+    "Fond d'ecran 2.jpeg",
+    "Fond d'ecran 3.jpeg",
+    "Fond d'ecran 4.jpeg",
+    "Fond d'ecran 5.jpeg",
+    "Fond d'ecran 6.jpeg",
+    "Fond d'ecran 7.jpeg",
+    "Fond d'ecran 8.jpeg",
+    "Fond d'ecran 9.jpeg",
+    "Fond d'ecran 10.jpeg"
+];
+
+let indexFond = 0;
+
+function changerFond() {
+    document.body.style.backgroundImage = `
+        linear-gradient(
+            rgba(8, 12, 18, 0.72),
+            rgba(8, 12, 18, 0.72)
+        ),
+        url("${encodeURI(imagesFond[indexFond])}")
+    `;
+
+    indexFond = (indexFond + 1) % imagesFond.length;
+}
+
+// Affiche le premier fond dès le chargement.
+changerFond();
+
+// Passe au fond suivant toutes les 15 secondes.
+setInterval(changerFond, 15000);
+
 
 const nomsFondsEcran = [
     "Fond d'ecran.jpg",
