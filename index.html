@@ -1,9 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>TF-FIU Maquettes papier</title>
 
 <style>
@@ -17,6 +17,7 @@ html {
 
 body {
     margin: 0;
+    background-color: #080c12;
     background-image:
         linear-gradient(
             rgba(8, 12, 18, 0.72),
@@ -30,10 +31,6 @@ body {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
-
-/* =========================
-   HEADER
-========================= */
 
 header {
     position: sticky;
@@ -61,7 +58,8 @@ header {
     cursor: pointer;
 }
 
-.logo span {
+.logo span,
+.hero h1 span {
     color: #4da3ff;
 }
 
@@ -86,10 +84,6 @@ nav button:hover {
     color: white;
 }
 
-/* =========================
-   GENERAL
-========================= */
-
 .container {
     max-width: 1200px;
     margin: auto;
@@ -112,14 +106,11 @@ nav button:hover {
     font-size: 28px;
 }
 
-.section-title p {
+.section-title p,
+.category-page-header p {
     margin: 0;
-    color: #8996a5;
+    color: #c0c9d4;
 }
-
-/* =========================
-   HERO
-========================= */
 
 .hero {
     min-height: 420px;
@@ -135,21 +126,13 @@ nav button:hover {
     line-height: 1;
 }
 
-.hero h1 span {
-    color: #4da3ff;
-}
-
 .hero p {
     max-width: 700px;
     margin: 0;
-    color: #c7d0da;
+    color: #e0e6ed;
     font-size: 20px;
     line-height: 1.6;
 }
-
-/* =========================
-   CATEGORIES
-========================= */
 
 .categories {
     display: grid;
@@ -174,10 +157,6 @@ nav button:hover {
     border-color: #4da3ff;
     background: #182331;
 }
-
-/* =========================
-   CARTES
-========================= */
 
 .cards {
     display: grid;
@@ -245,13 +224,10 @@ nav button:hover {
     transition: 0.2s;
 }
 
-.card-button:hover {
+.card-button:hover,
+.download-all:hover {
     background: #3189df;
 }
-
-/* =========================
-   PAGE CATEGORIE
-========================= */
 
 .category-page {
     display: none;
@@ -286,16 +262,6 @@ nav button:hover {
     margin: 0 0 10px;
     font-size: 42px;
 }
-
-.category-page-header p {
-    margin: 0;
-    color: #8996a5;
-    font-size: 17px;
-}
-
-/* =========================
-   MODALE
-========================= */
 
 .modal {
     display: none;
@@ -358,10 +324,6 @@ nav button:hover {
     padding: 25px;
 }
 
-/* =========================
-   MINIATURE
-========================= */
-
 .modal-miniature {
     width: 100%;
     max-height: 400px;
@@ -380,10 +342,6 @@ nav button:hover {
     max-height: 390px;
     object-fit: contain;
 }
-
-/* =========================
-   DESCRIPTION
-========================= */
 
 .description-box {
     margin: 0 auto 30px;
@@ -405,10 +363,6 @@ nav button:hover {
     font-size: 17px;
     line-height: 1.5;
 }
-
-/* =========================
-   TELECHARGEMENT
-========================= */
 
 .download-box {
     margin: 0 auto 30px;
@@ -436,14 +390,6 @@ nav button:hover {
     cursor: pointer;
     font-size: 15px;
 }
-
-.download-all:hover {
-    background: #3189df;
-}
-
-/* =========================
-   PNG
-========================= */
 
 .parts {
     display: grid;
@@ -500,40 +446,27 @@ nav button:hover {
     background: #213b56;
 }
 
-/* =========================
-   FOOTER
-========================= */
-
 footer {
     margin-top: 60px;
     padding: 30px 20px;
     text-align: center;
     border-top: 1px solid #263343;
-    color: #8996a5;
+    color: #d0d8e1;
     background: rgba(8, 12, 18, 0.9);
 }
 
-/* =========================
-   MOBILE
-========================= */
-
 @media (max-width: 900px) {
-
     .cards {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .categories {
-        grid-template-columns: 1fr;
-    }
-
+    .categories,
     .parts {
         grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 600px) {
-
     .header-inner {
         flex-direction: column;
         align-items: flex-start;
@@ -587,1051 +520,519 @@ footer {
 
 <body>
 
-<!-- =========================
-     HEADER
-========================= -->
-
 <header>
-
     <div class="header-inner">
-
-        <div
-            class="logo"
-            onclick="showHome()"
-        >
+        <div class="logo" onclick="showHome()">
             TF-FIU <span>Maquettes papier</span>
         </div>
 
         <nav>
-
-            <button onclick="showHome()">
-                Accueil
-            </button>
-
-            <button onclick="showCategory('TGV')">
-                TGV
-            </button>
-
-            <button onclick="showCategory('TER')">
-                TER
-            </button>
-
-            <button onclick="showCategory('RER')">
-                RER
-            </button>
-
+            <button onclick="showHome()">Accueil</button>
+            <button onclick="showCategory('TGV')">TGV</button>
+            <button onclick="showCategory('TER')">TER</button>
+            <button onclick="showCategory('RER')">RER</button>
         </nav>
-
     </div>
-
 </header>
 
-
-<!-- =========================
-     ACCUEIL
-========================= -->
-
 <main id="homePage">
-
     <div class="container">
-
         <section class="hero">
-
             <h1>
                 Bienvenue sur<br>
                 <span>TF-FIU Maquettes papier</span>
             </h1>
-
             <p>
                 Retrouvez ici mes maquettes papier de trains et de bus,
                 disponibles gratuitement en téléchargement au format PNG.
             </p>
-
         </section>
 
-
-        <!-- CATEGORIES -->
-
         <section class="section">
-
             <div class="section-title">
-
-                <h2>
-                    Catégories
-                </h2>
-
-                <p>
-                    Choisissez une catégorie
-                </p>
-
+                <h2>Catégories</h2>
+                <p>Choisissez une catégorie</p>
             </div>
-
 
             <div class="categories">
-
-                <button
-                    class="category"
-                    onclick="showCategory('TGV')"
-                >
+                <button class="category" onclick="showCategory('TGV')">
                     🚄 TGV
                 </button>
-
-                <button
-                    class="category"
-                    onclick="showCategory('TER')"
-                >
+                <button class="category" onclick="showCategory('TER')">
                     🚆 TER
                 </button>
-
-                <button
-                    class="category"
-                    onclick="showCategory('RER')"
-                >
+                <button class="category" onclick="showCategory('RER')">
                     🚇 RER
                 </button>
-
             </div>
-
         </section>
-
-
-        <!-- NOUVEAUTES -->
 
         <section class="section">
-
             <div class="section-title">
-
-                <h2>
-                    Les 4 dernières nouveautés
-                </h2>
-
-                <p>
-                    Les dernières maquettes publiées
-                </p>
-
+                <h2>Les 4 dernières nouveautés</h2>
+                <p>Les dernières maquettes publiées</p>
             </div>
-
-
-            <div
-                class="cards"
-                id="homeCards"
-            ></div>
-
+            <div class="cards" id="homeCards"></div>
         </section>
-
     </div>
-
 </main>
 
-
-<!-- =========================
-     PAGE CATEGORIE
-========================= -->
-
-<section
-    class="category-page"
-    id="categoryPage"
->
-
+<section class="category-page" id="categoryPage">
     <div class="container">
-
-        <button
-            class="back-button"
-            onclick="showHome()"
-        >
+        <button class="back-button" onclick="showHome()">
             ← Retour à l'accueil
         </button>
 
-
         <div class="category-page-header">
-
             <h1 id="categoryTitle"></h1>
-
             <p id="categoryDescription"></p>
-
         </div>
 
-
-        <div
-            class="cards"
-            id="categoryCards"
-        ></div>
-
+        <div class="cards" id="categoryCards"></div>
     </div>
-
 </section>
 
-
-<!-- =========================
-     MODALE
-========================= -->
-
-<div
-    class="modal"
-    id="modal"
->
-
+<div class="modal" id="modal">
     <div class="modal-box">
-
         <div class="modal-header">
-
             <div>
-
-                <h2
-                    class="modal-title"
-                    id="modalTitle"
-                ></h2>
-
-                <div
-                    class="modal-category"
-                    id="modalCategory"
-                ></div>
-
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <div class="modal-category" id="modalCategory"></div>
             </div>
-
-
-            <button
-                class="close"
-                onclick="closeModal()"
-            >
-                ×
-            </button>
-
+            <button class="close" onclick="closeModal()">×</button>
         </div>
-
 
         <div class="modal-content">
-
-
-            <!-- MINIATURE -->
-
             <div class="modal-miniature">
-
-                <img
-                    id="modalMiniature"
-                    src=""
-                    alt=""
-                >
-
+                <img id="modalMiniature" src="" alt="">
             </div>
-
-
-            <!-- DESCRIPTION -->
 
             <div class="description-box">
-
-                <h3>
-                    Description
-                </h3>
-
+                <h3>Description</h3>
                 <p id="modalDescription"></p>
-
             </div>
-
-
-            <!-- TELECHARGEMENT -->
 
             <div class="download-box">
-
-                <h3>
-                    Télécharger la maquette
-                </h3>
-
-                <button
-                    class="download-all"
-                    onclick="downloadAll()"
-                >
+                <h3>Télécharger la maquette</h3>
+                <button class="download-all" onclick="downloadAll()">
                     Télécharger tous les PNG
                 </button>
-
             </div>
 
-
-            <!-- FICHIERS PNG -->
-
-            <div
-                class="parts"
-                id="parts"
-            ></div>
-
+            <div class="parts" id="parts"></div>
         </div>
-
     </div>
-
 </div>
 
-
-<footer>
-    TF-FIU Maquettes papier
-</footer>
-
+<footer>TF-FIU Maquettes papier</footer>
 
 <script>
-
 /* =========================================================
-   MAQUETTES
-   =========================================================
-   
-   Pour chaque maquette tu peux maintenant mettre :
-
-   titre
-   description
-   categorie
-   nouveau
-   miniature
-   fichiers
-
-   La description est indépendante du titre.
+   LISTE DES MAQUETTES
 ========================================================= */
 
 const maquettes = [
-
     {
         titre: "TGV POS Duplex OUIGO Tango 734",
-
         description: "TGV POS Duplex OUIGO Tango 734, model et livrée crée par TF-FIU",
-
         categorie: "TGV",
-
         nouveau: false,
-
         miniature: "miniature 734.png",
-
         fichiers: [
-            "1 734.png",
-            "2 734.png",
-            "3 734.png",
-            "4 734.png",
-            "5 734.png",
-            "6 734.png",
-            "7 734.png",
-            "8 734.png",
-            "9 734.png",
-            "10 734.png",
-            "bogie 734.png",
-            "inter 734.png"
+            "1 734.png", "2 734.png", "3 734.png", "4 734.png",
+            "5 734.png", "6 734.png", "7 734.png", "8 734.png",
+            "9 734.png", "10 734.png", "bogie 734.png", "inter 734.png"
         ]
     },
-
-    
     {
         titre: "TGV Duplex OUIGO Dasye 770",
-
         description: "TGV Duplex OUIGO Dasye 770, model et livrée crée par TF-FIU",
-
         categorie: "TGV",
-
         nouveau: false,
-
         miniature: "miniature 770.png",
-
         fichiers: [
-            "1 770.png",
-            "2 770.png",
-            "3 770.png",
-            "4 770.png",
-            "5 770.png",
-            "6 770.png",
-            "7 770.png",
-            "8 770.png",
-            "9 770.png",
-            "10 770.png",
-            "bogie 770.png",
-            "inter 770.png"
+            "1 770.png", "2 770.png", "3 770.png", "4 770.png",
+            "5 770.png", "6 770.png", "7 770.png", "8 770.png",
+            "9 770.png", "10 770.png", "bogie 770.png", "inter 770.png"
         ]
     },
-    
-    
     {
         titre: "TGV Duplex Tallon inOui 234",
-
         description: "TGV Duplex Tallon inOui 234, model et livrée crée par TF-FIU",
-
         categorie: "TGV",
-
         nouveau: false,
-
         miniature: "miniature 234.png",
-
         fichiers: [
-            "1 234.png",
-            "2 234.png",
-            "3 234.png",
-            "4 234.png",
-            "5 234.png",
-            "6 234.png",
-            "7 234.png",
-            "8 234.png",
-            "9 234.png",
-            "10 234.png",
-            "bogie 234.png",
-            "inter 234.png"
-        ]
-        },
-        {
-        titre: "TGV POS inOui 4404",
-
-        description: "TGV POS inOui 4404, model et livrée crée par TF-FIU",
-
-        categorie: "TGV",
-
-        nouveau: false,
-
-        miniature: "miniature 4404.png",
-
-        fichiers: [
-            "1 4404.png",
-            "2 4404.png",
-            "3 4404.png",
-            "4 4404.png",
-            "5 4404.png",
-            "6 4404.png",
-            "7 4404.png",
-            "8 4404.png",
-            "9 4404.png",
-            "10 4404.png",
-            "bogie 4404.png",
-            "sous toit 4404.png",
-            "inter 4404.png"
+            "1 234.png", "2 234.png", "3 234.png", "4 234.png",
+            "5 234.png", "6 234.png", "7 234.png", "8 234.png",
+            "9 234.png", "10 234.png", "bogie 234.png", "inter 234.png"
         ]
     },
-    
+    {
+        titre: "TGV POS inOui 4404",
+        description: "TGV POS inOui 4404, model et livrée crée par TF-FIU",
+        categorie: "TGV",
+        nouveau: false,
+        miniature: "miniature 4404.png",
+        fichiers: [
+            "1 4404.png", "2 4404.png", "3 4404.png", "4 4404.png",
+            "5 4404.png", "6 4404.png", "7 4404.png", "8 4404.png",
+            "9 4404.png", "10 4404.png", "bogie 4404.png",
+            "sous toit 4404.png", "inter 4404.png"
+        ]
+    },
     {
         titre: "TGV Réseau Italia inOui 4503",
-
         description: "TGV Réseau Italia inOui 4503, model et livrée crée par TF-FIU",
-
         categorie: "TGV",
-
         nouveau: true,
-
         miniature: "miniature 4503.png",
-
         fichiers: [
-            "1 4503.png",
-            "2 4503.png",
-            "3 4503.png",
-            "4 4503.png",
-            "5 4503.png",
-            "6 4503.png",
-            "7 4503.png",
-            "8 4503.png",
-            "9 4503.png",
-            "10 4503.png",
-            "bogie 4503.png",
-            "sous toit 4503.png",
-            "inter 4503.png"
-        ]
-      },
-      {
-        titre: "TGV Atlantique Bas carbone inOui 370",
-
-        description: "TGV Atlantique Bas carbone inOui 370, model et livrée crée par TF-FIU",
-
-        categorie: "TGV",
-
-        nouveau: true,
-
-        miniature: "miniature 4503.png",
-
-        fichiers: [
-            "1 370.png",
-            "2 370.png",
-            "3 370.png",
-            "4 370.png",
-            "5 370.png",
-            "6 370.png",
-            "7 370.png",
-            "8 370.png",
-            "9 370.png",
-            "10 370.png",
-            "11 370.png",
-            "12 370.png",
-            "bogie 370.png",
-            "sous toit 370.png",
-            "inter 370.png"
+            "1 4503.png", "2 4503.png", "3 4503.png", "4 4503.png",
+            "5 4503.png", "6 4503.png", "7 4503.png", "8 4503.png",
+            "9 4503.png", "10 4503.png", "bogie 4503.png",
+            "sous toit 4503.png", "inter 4503.png"
         ]
     },
-    
+    {
+        titre: "TGV Atlantique Bas carbone inOui 370",
+        description: "TGV Atlantique Bas carbone inOui 370, model et livrée crée par TF-FIU",
+        categorie: "TGV",
+        nouveau: true,
+        miniature: "miniature 370.png",
+        fichiers: [
+            "1 370.png", "2 370.png", "3 370.png", "4 370.png",
+            "5 370.png", "6 370.png", "7 370.png", "8 370.png",
+            "9 370.png", "10 370.png", "11 370.png", "12 370.png",
+            "bogie 370.png", "sous toit 370.png", "inter 370.png"
+        ]
+    },
     {
         titre: "TGV Réseau Duplex inOui 616",
-
         description: "TGV Réseau Duplex inOui 616, model et livrée crée par TF-FIU",
-
         categorie: "TGV",
-
         nouveau: true,
-
         miniature: "miniature 616.png",
-
         fichiers: [
-            "1 616.png",
-            "2 616.png",
-            "3 616.png",
-            "4 616.png",
-            "5 616.png",
-            "6 616.png",
-            "7 616.png",
-            "8 616.png",
-            "9 616.png",
-            "10 616.png",
-            "bogie 616.png",
-            "inter 616.png"
+            "1 616.png", "2 616.png", "3 616.png", "4 616.png",
+            "5 616.png", "6 616.png", "7 616.png", "8 616.png",
+            "9 616.png", "10 616.png", "bogie 616.png", "inter 616.png"
         ]
     },
-    
     {
         titre: "TGV EuroDuplex inOui 892",
-
         description: "TGV EuroDuplex inOui 892, model et livrée crée par TF-FIU",
-
         categorie: "TGV",
-
         nouveau: false,
-
         miniature: "miniature 892.png",
-
         fichiers: [
-            "1 892.png",
-            "2 892.png",
-            "3 892.png",
-            "4 892.png",
-            "5 892.png",
-            "6 892.png",
-            "7 892.png",
-            "8 892.png",
-            "9 892.png",
-            "10 892.png",
-            "bogie 892.png",
-            "inter 892.png"
+            "1 892.png", "2 892.png", "3 892.png", "4 892.png",
+            "5 892.png", "6 892.png", "7 892.png", "8 892.png",
+            "9 892.png", "10 892.png", "bogie 892.png", "inter 892.png"
         ]
     },
-    
     {
         titre: "TGV EuroDuplex 3UA inOui 4713",
-
         description: "TGV EuroDuplex 3UA inOui 4713, model et livrée crée par TF-FIU",
-
         categorie: "TGV",
-
         nouveau: true,
-
         miniature: "miniature 4713.png",
-
         fichiers: [
-            "1 4713.png",
-            "2 4713.png",
-            "3 4713.png",
-            "4 4713.png",
-            "5 4713.png",
-            "6 4713.png",
-            "7 4713.png",
-            "8 4713.png",
-            "9 4713.png",
-            "10 4713.png",
-            "bogie 4713.png",
-            "inter 4713.png"
+            "1 4713.png", "2 4713.png", "3 4713.png", "4 4713.png",
+            "5 4713.png", "6 4713.png", "7 4713.png", "8 4713.png",
+            "9 4713.png", "10 4713.png", "bogie 4713.png", "inter 4713.png"
         ]
     },
-    
-    
     {
         titre: "TGV M OUIGO Italia 1404",
-
         description: "TGV M OUIGO Italia 1404, livrée crée par TF-FIU, sur la base du TGV M de cp92",
-
         categorie: "TGV",
-
         nouveau: false,
-
         miniature: "miniature 1404.png",
-
         fichiers: [
-            "1 1404.jpg",
-            "2 1404.jpg",
-            "3 1404.png",
-            "4 1404.png",
-            "5 1404.png",
-            "6 1404.png",
-            "7 1404.png",
-            "8 1404.png",
-            "9 1404.png",
-            "10 1404.jpg",
-            "11 1404.jpg",
-            "bogie 1404.png",
-            "inter 1404.png"
+            "1 1404.jpg", "2 1404.jpg", "3 1404.png", "4 1404.png",
+            "5 1404.png", "6 1404.png", "7 1404.png", "8 1404.png",
+            "9 1404.png", "10 1404.jpg", "11 1404.jpg",
+            "bogie 1404.png", "inter 1404.png"
         ]
     },
-
-
     {
         titre: "TGV M inOui Quadricourant 1401",
-
         description: "TGV M inOui Quadricourant 1401, une partie de la livrée crée par TF-FIU, sur la base du TGV M de cp92",
-
         categorie: "TGV",
-
         nouveau: false,
-
         miniature: "miniature 1401.png",
-
         fichiers: [
-            "1 1401.png",
-            "2 1401.png",
-            "3 1401.png",
-            "4 1401.png",
-            "5 1401.png",
-            "6 1401.png",
-            "7 1401.png",
-            "8 1401.png",
-            "9 1401.png",
-            "10 1401.png",
-            "11 1401.png",
-            "bogie 1401.png",
-            "inter 1401.png"
+            "1 1401.png", "2 1401.png", "3 1401.png", "4 1401.png",
+            "5 1401.png", "6 1401.png", "7 1401.png", "8 1401.png",
+            "9 1401.png", "10 1401.png", "11 1401.png",
+            "bogie 1401.png", "inter 1401.png"
         ]
     }
-
 ];
-
-
-/* =========================================================
-   VARIABLE MAQUETTE ACTUELLE
-========================================================= */
 
 let maquetteActuelle = null;
 
-
 /* =========================================================
-   URL FICHIER
+   GESTION DES NOMS DE FICHIERS
 ========================================================= */
 
 function fichierURL(nom) {
-
     return encodeURIComponent(nom);
-
 }
 
-
 /* =========================================================
-   CREER UNE CARTE
+   CREATION DES CARTES
 ========================================================= */
 
 function creerCarte(maquette) {
-
-    const index =
-        maquettes.indexOf(maquette);
-
-
-    const card =
-        document.createElement("article");
-
+    const index = maquettes.indexOf(maquette);
+    const card = document.createElement("article");
 
     card.className = "card";
-
-
     card.innerHTML = `
-
         <div class="card-image">
-
-            <img
-                src="${fichierURL(maquette.miniature)}"
-                alt="${maquette.titre}"
-            >
-
+            <img src="${fichierURL(maquette.miniature)}"
+                 alt="${maquette.titre}">
         </div>
-
-
         <div class="card-body">
-
-            <div class="card-category">
-                ${maquette.categorie}
-            </div>
-
-
-            <div class="card-title">
-                ${maquette.titre}
-            </div>
-
-
-            <button
-                class="card-button"
-                onclick="openModel(${index})"
-            >
+            <div class="card-category">${maquette.categorie}</div>
+            <div class="card-title">${maquette.titre}</div>
+            <button class="card-button" onclick="openModel(${index})">
                 Voir la maquette
             </button>
-
         </div>
-
     `;
 
-
     return card;
-
 }
-
 
 /* =========================================================
    ACCUEIL
 ========================================================= */
 
 function afficherAccueil() {
-
-    const cards =
-        document.getElementById("homeCards");
-
-
+    const cards = document.getElementById("homeCards");
     cards.innerHTML = "";
 
-
-    const nouveautes =
-        maquettes
-            .filter(
-                maquette => maquette.nouveau
-            )
-            .slice(0, 4);
-
+    const nouveautes = maquettes
+        .filter(maquette => maquette.nouveau)
+        .slice(0, 4);
 
     nouveautes.forEach(maquette => {
-
-        cards.appendChild(
-            creerCarte(maquette)
-        );
-
+        cards.appendChild(creerCarte(maquette));
     });
 
-
     if (nouveautes.length === 0) {
-
         cards.innerHTML = `
-            <p style="
-                color:#8996a5;
-                font-size:18px;
-            ">
+            <p style="color:#d0d8e1;font-size:18px">
                 Aucune nouveauté pour le moment.
             </p>
         `;
-
     }
-
 }
 
-
 /* =========================================================
-   OUVRIR UNE CATEGORIE
+   AFFICHER UNE CATEGORIE
 ========================================================= */
 
 function showCategory(categorie) {
+    document.getElementById("homePage").style.display = "none";
+    document.getElementById("categoryPage").classList.add("active");
 
-    document.getElementById("homePage")
-        .style.display = "none";
+    document.getElementById("categoryTitle").textContent = categorie;
+    document.getElementById("categoryDescription").textContent =
+        "Toutes les maquettes de la catégorie " + categorie + ".";
 
-
-    document.getElementById("categoryPage")
-        .classList.add("active");
-
-
-    document.getElementById("categoryTitle")
-        .textContent = categorie;
-
-
-    document.getElementById("categoryDescription")
-        .textContent =
-        "Toutes les maquettes de la catégorie " +
-        categorie +
-        ".";
-
-
-    const cards =
-        document.getElementById("categoryCards");
-
-
+    const cards = document.getElementById("categoryCards");
     cards.innerHTML = "";
 
-
-    const resultats =
-        maquettes.filter(
-            maquette =>
-                maquette.categorie === categorie
-        );
-
+    const resultats = maquettes.filter(
+        maquette => maquette.categorie === categorie
+    );
 
     if (resultats.length === 0) {
-
         cards.innerHTML = `
-            <p style="
-                color:#8996a5;
-                font-size:18px;
-            ">
-                Aucune maquette dans cette catégorie
-                pour le moment.
+            <p style="color:#d0d8e1;font-size:18px">
+                Aucune maquette dans cette catégorie pour le moment.
             </p>
         `;
-
     }
 
-
     resultats.forEach(maquette => {
-
-        cards.appendChild(
-            creerCarte(maquette)
-        );
-
+        cards.appendChild(creerCarte(maquette));
     });
 
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
+    window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-
 /* =========================================================
-   RETOUR ACCUEIL
+   RETOUR A L'ACCUEIL
 ========================================================= */
 
 function showHome() {
+    document.getElementById("categoryPage").classList.remove("active");
+    document.getElementById("homePage").style.display = "block";
 
-    document.getElementById("categoryPage")
-        .classList.remove("active");
-
-
-    document.getElementById("homePage")
-        .style.display = "block";
-
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
+    window.scrollTo({ top: 0, behavior: "smooth" });
 }
-
 
 /* =========================================================
    OUVRIR UNE MAQUETTE
 ========================================================= */
 
 function openModel(index) {
+    maquetteActuelle = maquettes[index];
 
-    maquetteActuelle =
-        maquettes[index];
-
-
-    /* TITRE */
-
-    document.getElementById("modalTitle")
-        .textContent =
+    document.getElementById("modalTitle").textContent =
         maquetteActuelle.titre;
 
-
-    /* DESCRIPTION */
-
-    document.getElementById("modalDescription")
-        .textContent =
+    document.getElementById("modalDescription").textContent =
         maquetteActuelle.description;
 
-
-    /* CATEGORIE */
-
-    document.getElementById("modalCategory")
-        .textContent =
+    document.getElementById("modalCategory").textContent =
         maquetteActuelle.categorie;
 
+    const miniature = document.getElementById("modalMiniature");
+    miniature.src = fichierURL(maquetteActuelle.miniature);
+    miniature.alt = maquetteActuelle.titre;
 
-    /* MINIATURE */
-
-    const miniature =
-        document.getElementById("modalMiniature");
-
-
-    miniature.src =
-        fichierURL(
-            maquetteActuelle.miniature
-        );
-
-
-    miniature.alt =
-        maquetteActuelle.titre;
-
-
-    /* PNG */
-
-    const parts =
-        document.getElementById("parts");
-
-
+    const parts = document.getElementById("parts");
     parts.innerHTML = "";
 
+    maquetteActuelle.fichiers.forEach((nom, index) => {
+        const url = fichierURL(nom);
+        const part = document.createElement("article");
 
-    maquetteActuelle.fichiers
-        .forEach((nom, index) => {
+        part.className = "part";
+        part.innerHTML = `
+            <div class="part-preview">
+                <img src="${url}" alt="${nom}">
+            </div>
+            <div class="part-body">
+                <span class="part-name">${index + 1}. ${nom}</span>
+                <a class="download-part" href="${url}" download="${nom}">
+                    Télécharger le PNG
+                </a>
+            </div>
+        `;
 
-            const url =
-                fichierURL(nom);
+        parts.appendChild(part);
+    });
 
-
-            const part =
-                document.createElement("article");
-
-
-            part.className = "part";
-
-
-            part.innerHTML = `
-
-                <div class="part-preview">
-
-                    <img
-                        src="${url}"
-                        alt="${nom}"
-                    >
-
-                </div>
-
-
-                <div class="part-body">
-
-                    <span class="part-name">
-                        ${index + 1}. ${nom}
-                    </span>
-
-
-                    <a
-                        class="download-part"
-                        href="${url}"
-                        download="${nom}"
-                    >
-                        Télécharger le PNG
-                    </a>
-
-                </div>
-
-            `;
-
-
-            parts.appendChild(part);
-
-        });
-
-
-    /* AFFICHER LA MODALE */
-
-    document.getElementById("modal")
-        .style.display = "block";
-
-
-    document.body.style.overflow =
-        "hidden";
-
+    document.getElementById("modal").style.display = "block";
+    document.body.style.overflow = "hidden";
 }
 
-
 /* =========================================================
-   FERMER LA MODALE
+   FERMER LA FENETRE DE LA MAQUETTE
 ========================================================= */
 
 function closeModal() {
-
-    document.getElementById("modal")
-        .style.display = "none";
-
-
+    document.getElementById("modal").style.display = "none";
     document.body.style.overflow = "";
-
 }
 
-
-/* =========================================================
-   CLIC EN DEHORS
-========================================================= */
-
-document.getElementById("modal")
-    .addEventListener(
-        "click",
-        function(event) {
-
-            if (
-                event.target ===
-                document.getElementById("modal")
-            ) {
-
-                closeModal();
-
-            }
-
-        }
-    );
-
-
-/* =========================================================
-   TOUCHE ECHAP
-========================================================= */
-
-document.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (event.key === "Escape") {
-
-            closeModal();
-
-        }
-
+document.getElementById("modal").addEventListener("click", function(event) {
+    if (event.target === document.getElementById("modal")) {
+        closeModal();
     }
-);
+});
 
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        closeModal();
+    }
+});
 
 /* =========================================================
    TELECHARGER TOUS LES PNG
 ========================================================= */
 
 function downloadAll() {
-
     if (!maquetteActuelle) {
         return;
     }
 
+    maquetteActuelle.fichiers.forEach((nom, index) => {
+        setTimeout(() => {
+            const link = document.createElement("a");
+            link.href = fichierURL(nom);
+            link.download = nom;
 
-    maquetteActuelle.fichiers
-        .forEach((nom, index) => {
-
-            setTimeout(() => {
-
-                const link =
-                    document.createElement("a");
-
-
-                link.href =
-                    fichierURL(nom);
-
-
-                link.download = nom;
-
-
-                document.body.appendChild(link);
-
-
-                link.click();
-
-
-                document.body.removeChild(link);
-
-            }, index * 600);
-
-        });
-
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }, index * 600);
+    });
 }
 
+/* =========================================================
+   FONDS D'ECRAN : CHANGEMENT TOUTES LES 15 SECONDES
+========================================================= */
+
+// Les images doivent être dans le même dossier que le fichier HTML.
+// Noms reconnus :
+// Fond d'ecran.jpg
+// Fond d'ecran 1.jpg
+// Fond d'ecran 2.jpg
+// Fond d'ecran 3.jpg, etc.
+//
+// Le script teste jusqu'à 50 images numérotées et ignore
+// automatiquement celles qui ne sont pas présentes.
+
+const nomsFondsEcran = [
+    "Fond d'ecran.jpg",
+    ...Array.from(
+        { length: 50 },
+        (_, index) => `Fond d'ecran ${index + 1}.jpg`
+    )
+];
+
+// Vérifie quelles images existent réellement.
+Promise.all(
+    nomsFondsEcran.map(nom => new Promise(resolve => {
+        const image = new Image();
+
+        image.onload = () => resolve(nom);
+        image.onerror = () => resolve(null);
+
+        image.src = encodeURI(nom);
+    }))
+).then(fondsDisponibles => {
+    const fondsValides = fondsDisponibles.filter(Boolean);
+
+    if (fondsValides.length === 0) {
+        return;
+    }
+
+    let indexFond = 0;
+
+    function appliquerFond(nom) {
+        document.body.style.backgroundImage = `
+            linear-gradient(
+                rgba(8, 12, 18, 0.72),
+                rgba(8, 12, 18, 0.72)
+            ),
+            url("${encodeURI(nom)}")
+        `;
+    }
+
+    // Affiche le premier fond au démarrage.
+    appliquerFond(fondsValides[indexFond]);
+
+    // Change de fond toutes les 15 secondes.
+    setInterval(() => {
+        indexFond = (indexFond + 1) % fondsValides.length;
+        appliquerFond(fondsValides[indexFond]);
+    }, 15000);
+});
 
 /* =========================================================
-   LANCEMENT
+   LANCEMENT DU SITE
 ========================================================= */
 
 afficherAccueil();
-
 </script>
 
 </body>
