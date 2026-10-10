@@ -23,7 +23,7 @@ body {
             rgba(8, 12, 18, 0.72),
             rgba(8, 12, 18, 0.72)
         ),
-        url("Fond d'ecran.jpg");
+        url("Fond d'ecran 1.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -455,6 +455,25 @@ footer {
     background: rgba(8, 12, 18, 0.9);
 }
 
+/* Couche utilisée pour la transition fondue */
+#fond-transition {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+        linear-gradient(
+            rgba(8, 12, 18, 0.72),
+            rgba(8, 12, 18, 0.72)
+        ),
+        url("Fond d'ecran 1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.8s ease-in-out;
+}
+
 @media (max-width: 900px) {
     .cards {
         grid-template-columns: repeat(2, 1fr);
@@ -519,6 +538,7 @@ footer {
 </head>
 
 <body>
+<div id="fond-transition" aria-hidden="true"></div>
 
 <header>
     <div class="header-inner">
@@ -773,18 +793,12 @@ const maquettes = [
 
 let maquetteActuelle = null;
 
-/* =========================================================
-   GESTION DES NOMS DE FICHIERS
-========================================================= */
-
+/* Gestion des noms de fichiers */
 function fichierURL(nom) {
     return encodeURIComponent(nom);
 }
 
-/* =========================================================
-   CREATION DES CARTES
-========================================================= */
-
+/* Création des cartes */
 function creerCarte(maquette) {
     const index = maquettes.indexOf(maquette);
     const card = document.createElement("article");
@@ -807,10 +821,7 @@ function creerCarte(maquette) {
     return card;
 }
 
-/* =========================================================
-   ACCUEIL
-========================================================= */
-
+/* Accueil */
 function afficherAccueil() {
     const cards = document.getElementById("homeCards");
     cards.innerHTML = "";
@@ -832,10 +843,7 @@ function afficherAccueil() {
     }
 }
 
-/* =========================================================
-   AFFICHER UNE CATEGORIE
-========================================================= */
-
+/* Afficher une catégorie */
 function showCategory(categorie) {
     document.getElementById("homePage").style.display = "none";
     document.getElementById("categoryPage").classList.add("active");
@@ -866,10 +874,7 @@ function showCategory(categorie) {
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-/* =========================================================
-   RETOUR A L'ACCUEIL
-========================================================= */
-
+/* Retour à l'accueil */
 function showHome() {
     document.getElementById("categoryPage").classList.remove("active");
     document.getElementById("homePage").style.display = "block";
@@ -877,10 +882,7 @@ function showHome() {
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-/* =========================================================
-   OUVRIR UNE MAQUETTE
-========================================================= */
-
+/* Ouvrir une maquette */
 function openModel(index) {
     maquetteActuelle = maquettes[index];
 
@@ -924,10 +926,7 @@ function openModel(index) {
     document.body.style.overflow = "hidden";
 }
 
-/* =========================================================
-   FERMER LA FENETRE DE LA MAQUETTE
-========================================================= */
-
+/* Fermer la fenêtre de la maquette */
 function closeModal() {
     document.getElementById("modal").style.display = "none";
     document.body.style.overflow = "";
@@ -945,10 +944,7 @@ document.addEventListener("keydown", function(event) {
     }
 });
 
-/* =========================================================
-   TELECHARGER TOUS LES PNG
-========================================================= */
-
+/* Télécharger tous les PNG */
 function downloadAll() {
     if (!maquetteActuelle) {
         return;
@@ -968,72 +964,50 @@ function downloadAll() {
 }
 
 /* =========================================================
-   FOND D'ECRAN : ALTERNANCE TOUTES LES 15 SECONDES
+   FONDS D'ÉCRAN : TRANSITION FONDUE TOUTES LES 15 SECONDES
 ========================================================= */
 
-const imagesFond = [
-    "Fond d'ecran .jpg",
-    "Fond d'ecran 2.jpeg",
-    "Fond d'ecran 3.jpeg",
-    "Fond d'ecran 4.jpeg",
-    "Fond d'ecran 5.jpeg",
-    "Fond d'ecran 6.jpeg",
-    "Fond d'ecran 7.jpeg",
-    "Fond d'ecran 8.jpeg",
-    "Fond d'ecran 9.jpeg",
-    "Fond d'ecran 10.jpeg"
-];
+const extensionsFond = [".jpg", ".jpeg", ".png", ".webp"];
 
-let indexFond = 0;
-
-function changerFond() {
-    document.body.style.backgroundImage = `
-        linear-gradient(
-            rgba(8, 12, 18, 0.72),
-            rgba(8, 12, 18, 0.72)
-        ),
-        url("${encodeURI(imagesFond[indexFond])}")
-    `;
-
-    indexFond = (indexFond + 1) % imagesFond.length;
-}
-
-// Affiche le premier fond dès le chargement.
-changerFond();
-
-// Passe au fond suivant toutes les 15 secondes.
-setInterval(changerFond, 15000);
-
-
-const nomsFondsEcran = [
-    "Fond d'ecran.jpg",
-    ...Array.from(
-        { length: 50 },
-        (_, index) => `Fond d'ecran ${index + 1}.jpg`
-    )
-];
-
-// Vérifie quelles images existent réellement.
-Promise.all(
-    nomsFondsEcran.map(nom => new Promise(resolve => {
+function verifierImageFond(nom) {
+    return new Promise(resolve => {
         const image = new Image();
 
         image.onload = () => resolve(nom);
         image.onerror = () => resolve(null);
 
         image.src = encodeURI(nom);
-    }))
-).then(fondsDisponibles => {
-    const fondsValides = fondsDisponibles.filter(Boolean);
+    });
+}
 
-    if (fondsValides.length === 0) {
+async function demarrerAlternanceFonds() {
+    const candidats = [];
+
+    // Recherche les fonds numérotés de 1 à 50.
+    for (let numero = 1; numero <= 50; numero++) {
+        for (const extension of extensionsFond) {
+            candidats.push(`Fond d'ecran ${numero}${extension}`);
+        }
+    }
+
+    const resultats = await Promise.all(
+        candidats.map(verifierImageFond)
+    );
+
+    const fondsDisponibles = resultats.filter(Boolean);
+
+    if (fondsDisponibles.length === 0) {
+        console.warn(
+            "Aucun fond numéroté trouvé. Vérifie les noms et extensions des images."
+        );
         return;
     }
 
+    const couche = document.getElementById("fond-transition");
     let indexFond = 0;
 
     function appliquerFond(nom) {
-        document.body.style.backgroundImage = `
+        couche.style.backgroundImage = `
             linear-gradient(
                 rgba(8, 12, 18, 0.72),
                 rgba(8, 12, 18, 0.72)
@@ -1042,20 +1016,29 @@ Promise.all(
         `;
     }
 
-    // Affiche le premier fond au démarrage.
-    appliquerFond(fondsValides[indexFond]);
+    // Affiche le premier fond disponible.
+    appliquerFond(fondsDisponibles[indexFond]);
+    couche.style.opacity = "1";
 
-    // Change de fond toutes les 15 secondes.
+    // Toutes les 15 secondes, mélange progressivement vers le suivant.
     setInterval(() => {
-        indexFond = (indexFond + 1) % fondsValides.length;
-        appliquerFond(fondsValides[indexFond]);
+        indexFond = (indexFond + 1) % fondsDisponibles.length;
+
+        // Fait disparaître doucement le fond actuel.
+        couche.style.opacity = "0";
+
+        // Change l'image pendant que la couche est invisible,
+        // puis fait apparaître le nouveau fond progressivement.
+        setTimeout(() => {
+            appliquerFond(fondsDisponibles[indexFond]);
+            couche.style.opacity = "1";
+        }, 900);
     }, 15000);
-});
+}
 
-/* =========================================================
-   LANCEMENT DU SITE
-========================================================= */
+demarrerAlternanceFonds();
 
+/* Lancement du site */
 afficherAccueil();
 </script>
 
