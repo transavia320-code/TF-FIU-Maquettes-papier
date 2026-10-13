@@ -507,6 +507,7 @@ footer {
         <nav>
             <button onclick="showHome()">Accueil</button>
             <button onclick="showCategory('TGV')">TGV</button>
+            <button onclick="showCategory('BUS')">BUS</button>
             <button onclick="showCategory('TER')">TER</button>
             <button onclick="showCategory('RER')">RER</button>
         </nav>
@@ -655,10 +656,20 @@ const maquettes = [
         ]
     },
     {
+        titre: "Solaris Urbino 12 H2",
+        description: "Solaris Urbino 12 H2, modèle créés par TF-FIU.",
+        categorie: "BUS",
+        nouveau: true,
+        miniature: "miniature 7150.png",
+        fichiers: [
+            "7150.png"
+        ]
+    },
+    {
         titre: "TGV Atlantique Bas carbone inOui 370",
         description: "TGV Atlantique Bas carbone inOui 370, modèle et livrée créés par TF-FIU.",
         categorie: "TGV",
-        nouveau: true,
+        nouveau: false,
         miniature: "miniature 370.png",
         fichiers: [
             "1 370.png", "2 370.png", "3 370.png", "4 370.png",
@@ -716,10 +727,23 @@ const maquettes = [
         ]
     },
     {
+        titre: "TGV Sud Est PSE Rénové Carmillon 15",
+        description: "TGV Sud Est PSE Rénové Carmillon 15, modèle et livrée créés par TF-FIU.",
+        categorie: "TGV",
+        nouveau: true,
+        miniature: "miniature 15.png",
+        fichiers: [
+            "1 15.png", "2 15.png", "3 15.png", "4 15.png",
+            "5 15.png", "6 15.png", "7 15.png", "8 15.png",
+            "9 15.png", "10 15.png", "11 15.png", "12 15.png",
+            "bogie 15.png", "sous toit 15.png", "inter 15.png"
+        ]
+    },
+    {
         titre: "TGV Tallon Duplex Atlantique bleu 283",
         description: "TGV Tallon Duplex Atlantique bleu 283, modèle et livrée créés par TF-FIU.",
         categorie: "TGV",
-        nouveau: true,
+        nouveau: false,
         miniature: "miniature 283.png",
         fichiers: [
             "1 283.png", "2 283.png", "3 283.png", "4 283.png",
