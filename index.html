@@ -512,6 +512,7 @@ footer {
             <button onclick="showCategory('BUS')">Bus</button>
             <button onclick="showCategory('TRAM')">Tram</button>
             <button onclick="showCategory('METRO')">Métro</button>
+            <button onclick="showCategory('TRANSILIEN')">Transilien</button>
             <button onclick="showCategory('AUTRES')">Autres</button>
         </nav>
     </div>
@@ -539,6 +540,7 @@ footer {
                 <button class="category" onclick="showCategory('BUS')">🚌 Bus</button>
                 <button class="category" onclick="showCategory('TRAM')">🚊 Tram</button>
                 <button class="category" onclick="showCategory('METRO')">🚇 Métro</button>
+                <button class="category" onclick="showCategory('TRANSILIEN')">🚇 Transilien</button>
                 <button class="category" onclick="showCategory('AUTRES')">🚇 Autres</button>
             </div>
         </section>
@@ -600,6 +602,18 @@ footer {
 ========================================================= */
 
 const maquettes = [
+    {
+        titre: "VB2N livrée Transilien avec BB22223 et BB27300",
+        description: "VB2N livrée Transilien avec BB22223 et BB27300, modèle crée par cp92 et livrée modifié par TF-FIU.",
+        categorie: "Transilien",
+        nouveau: true,
+        miniature: "miniature VB2N transilien.png",
+        fichiers: [
+            "VB2N transilien 1.png", "VB2N transilien 2.png", "VB2N transilien 3.png", "VB2N transilien 4.png",
+            "VB2N transilien 5.png", "VB2N transilien 6.png", "VB2N transilien 1 tête.png", "VB2N transilien bogie.png", "VB2N transilien 22223.png",
+            "VB2N transilien 22223 panto.png", "VB2N transilien 27301.png", "VB2N transilien 27301 panto.png"
+        ]
+    },
     {
         titre: "TGV POS Duplex OUIGO Tango 734",
         description: "TGV POS Duplex OUIGO Tango 734, modèle et livrée créés par TF-FIU.",
@@ -710,7 +724,7 @@ const maquettes = [
         titre: "Autorails thermiques mono caisses X73500 livré Picardie (73595)",
         description: "Autorails thermiques mono caisses X73500 livré Picardie (73595), modèle créés par TF-FIU, livrée crée par spoteurdesainto.",
         categorie: "TER",
-        nouveau: true,
+        nouveau: false,
         miniature: "miniature 73595.png",
         fichiers: [
             "1 73595.png"
